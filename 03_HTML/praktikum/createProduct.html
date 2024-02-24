@@ -6,38 +6,39 @@
     <title>Create Product</title>
 </head>
 <body>
-    <h1>Tantangan HTML</h1>
+    <h1>Create Product</h1>
+    <h2>Detail Product</h2>
     <form action="">
         <label for="">
             Product name: <br>
             <input type="text" name="" id="" value="" required minlength="6" maxlength="50">
         </label><br><br>
-        <label for="" >
+        <label for="product_category">
             Product category : <br>
-            <input type="radio" name="" id="" value="Brand New" required>
+            <input type="radio" name="product_category" id="brand_new" value="Brand New" required>
             Brand New
             <br>
-            <input type="radio" name="" id="" value="Secondhank" required>
-            Secondhank
+            <input type="radio" name="product_category" id="secondhand" value="Secondhand" required>
+            Secondhand
             <br>
-            <input type="radio" name="" id="" value="Refurbished" required>
+            <input type="radio" name="product_category" id="refurbished" value="Refurbished" required>
             Refurbished
             <br><br>
         </label>
     
     <label for="">
-        image of Product
-        <input type="file" name="" id="">
+        Image of Product
+        <input type="file" name="" id="" required>
     </label>
     <br><br>
     <label for="">
         Additional description : <br>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="" id="" cols="30" rows="10" required></textarea>
     </label>
     <br><br>
     <label for="">
         Product Price : <br>
-        <input type="number" name="" id="" value="">
+        <input type="number" name="" id="" value="" required placeholder="$100">
     </label>
     </form>
     <br>
