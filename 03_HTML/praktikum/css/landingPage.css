@@ -1,0 +1,34 @@
+header{
+    border-bottom: 1px solid black;
+}
+main{
+    margin-left: 40px;
+}
+img{
+    display: block;
+}
+.btn-getstarted{
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid black;
+}
+.btn-watchvideo{
+    display: inline-block;
+    padding: 10px 20px;
+}
+.btn-getstarted-newslatter{
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    border: 1px solid black;
+}
+footer{
+    margin-top: 30px;
+    border-top: solid 1px black;
+    margin-left: 40px;
+}
+.copyright{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
