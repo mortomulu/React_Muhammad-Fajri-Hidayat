@@ -47,8 +47,9 @@
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
+    background-color: #37517E;
 }
-.getstarted{
+.content-button .getstarted{
     background-color: #47B2E4;
 }
 .getstarted:hover{
