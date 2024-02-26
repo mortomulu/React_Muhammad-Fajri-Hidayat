@@ -51,3 +51,7 @@
 .getstarted{
     background-color: #47B2E4;
 }
+.getstarted:hover{
+    color: white;
+    background-color: #37517E;
+}
