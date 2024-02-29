@@ -159,13 +159,13 @@ input[type="text"]:focus {
 }
 .contact-container{
     width: 1,280px;
-    height: 249.19px;
+    height: fit-content;
     display: flex;
     margin-bottom: 50px;
 }
 .arsha{
     width: 300px;
-    height: 219.19px;
+    height: fit-content;
     flex-basis: 25%;
     padding: 0px, 154.02px, 35.19px, 12px;
 }
@@ -176,7 +176,7 @@ input[type="text"]:focus {
 }
 .usefullinks{
     width: 300px;
-    height: 219.19px;
+    height: fit-content;
     flex-basis: 25%;
     padding: 0px, 12px, 0px, 12px;
 }
@@ -187,7 +187,7 @@ input[type="text"]:focus {
 }
 .ourservices{
     width: 300px;
-    height: 219.19px;
+    height: fit-content;
     flex-basis: 25%;
     padding: 0px, 12px, 0px, 12px;   
 }
@@ -198,7 +198,7 @@ input[type="text"]:focus {
 }
 .oursocnet{
     width: 290px;
-    height: 219px;
+    height: fit-content;
     flex-basis: 25%;
     margin-right: 70px;
 }
@@ -262,24 +262,10 @@ footer{
 }
 
 
-/* Media query for handphone */
-@media screen and (max-width: 767px) {
-
-}
-
-
-/* Media query for tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-}
-
-
-/* Media query for laptop */
-@media screen and (min-width: 1024px) {
-}
-
 
 
 /* Styling media query terbaru */
+
 /* XL Desktop */
 @media screen and (min-width : 1300px){
     .section-contact{
@@ -306,6 +292,140 @@ footer{
 
 
 /* M Device / Tablet */
-@media screen and (min-width : 768px) and (max-width : 930px){
+@media screen and (min-width : 650px) and (max-width : 930px){
+    .section-hero{
+        width: 100%;
+    }
+    .hero-container{
+        width:100%;
+        display: block;
+    }
+    .image{
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+    }
+    .section-contact{
+        height: fit-content;
+    }
+    .contact-container{
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+    .arsha{
+        flex-basis: 50%;
+    }
+    .usefullinks{
+        flex-basis: 50%;
+        text-align: end;
+    }
+    .ourservices{
+        flex-basis: 50%;
+        margin-top: 50px;
+    }
+    .oursocnet{
+        flex-basis: 50%;
+        margin-right: 0;
+        margin-top: 50px;
+        text-align: end;
+    }
+    .ava{
+        flex-direction: row-reverse;
+    }
+}
 
+
+/* Small device / Landscape Handphone */
+@media screen and (min-width : 320px) and (max-width : 649px){
+
+
+    .section-hero{
+        width: 100%;
+    }
+    .hero-container{
+        width:100%;
+        display: block;
+    }
+    .content h1{
+        font-size: 2rem;
+    }
+    .content p{
+        font-size: 1rem;
+    }
+    .image{
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .image img{
+        width: 100%;
+    }
+    .content-button{
+        margin-top: 1px;
+    }
+    .content .content-button button{
+        font-size: 0.7rem;
+    }
+
+
+    .section-newslatter{
+        max-width: 100%;
+    }
+    .section-newslatter p{
+        text-align: center;
+    }
+    .newslatter-form{
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .input{
+        width: 70%;
+        margin-top: 10px;
+    }
+    .button{
+        margin: 10px auto;
+        margin-top: 30px;
+        padding: 5px;
+    }
+
+
+    .section-contact{
+        height: fit-content;
+    }
+    .contact-container{
+        flex-wrap: wrap;
+        height: fit-content;
+        width: 100%;
+    }
+    .arsha{
+        flex-basis: 50%;
+    }
+    .usefullinks{
+        display: none;
+        flex-basis: 50%;
+        text-align: end;
+    }
+    .ourservices{
+        display: none;
+        flex-basis: 50%;
+        margin-top: 50px;
+    }
+    .oursocnet{
+        flex-basis: 50%;
+        margin-right: 0;
+        margin-top: 50px;
+        text-align: end;
+        display: none;
+    }
+    .ava{
+        flex-direction: row-reverse;
+    }
+
+
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+    }
 }
