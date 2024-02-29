@@ -10,6 +10,7 @@
 }
 
 
+
 /* Styling section hero */
 .section-hero{
     background-color: #37517E;
@@ -29,17 +30,17 @@
 .content {
     display: flex;
     flex-direction: column;
-    align-items: start; /* Mengatur konten vertikal menjadi rata kiri */
+    align-items: start;
     justify-content: center;
     gap: 30px;
-    text-align: left; /* Mengatur teks rata kiri */
+    text-align: left;
     padding-left: 10px;
 }
 
 .content h1, .content p {
     color: white;
     font-family: jost;
-    text-align: left; /* Mengatur teks rata kiri */
+    text-align: left; 
 }
 .content h1{
     font-size: 48px;
@@ -72,6 +73,11 @@
 }
 .content-button .getstarted{
     background-color: #47B2E4;
+    transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -ms-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
 }
 .getstarted:hover{
     color: white;
@@ -124,8 +130,8 @@
     padding-left: 30px;
 }
 input[type="text"]:focus {
-    outline: none; /* Menghilangkan outline saat elemen input mendapatkan fokus */
-    border: none; /* Menghilangkan border saat elemen input mendapatkan fokus */
+    outline: none;
+    border: none; 
 }
 .button{
     background-color: #47B2E4;
@@ -160,6 +166,7 @@ input[type="text"]:focus {
 .arsha{
     width: 300px;
     height: 219.19px;
+    flex-basis: 25%;
     padding: 0px, 154.02px, 35.19px, 12px;
 }
 .arsha h2{
@@ -170,7 +177,8 @@ input[type="text"]:focus {
 .usefullinks{
     width: 300px;
     height: 219.19px;
-    padding: 0px, 12px, 0px, 12px;    
+    flex-basis: 25%;
+    padding: 0px, 12px, 0px, 12px;
 }
 .usefullinks h4{
     font-size: 16px;
@@ -180,6 +188,7 @@ input[type="text"]:focus {
 .ourservices{
     width: 300px;
     height: 219.19px;
+    flex-basis: 25%;
     padding: 0px, 12px, 0px, 12px;   
 }
 .ourservices h4{
@@ -190,6 +199,8 @@ input[type="text"]:focus {
 .oursocnet{
     width: 290px;
     height: 219px;
+    flex-basis: 25%;
+    margin-right: 70px;
 }
 .oursocnet h4{
     font-size: 16px;
@@ -197,13 +208,13 @@ input[type="text"]:focus {
     color: #37517E;
 }
 blockquote {
-    font-family: jost; /* Mengatur jenis font */
+    font-family: jost;
     font-weight: 400;
-    line-height: 24px; /* Mengatur jarak antara baris */
-    white-space: pre-line; /* Mengatur cara teks ditampilkan, termasuk karakter baris baru */
+    line-height: 24px;
+    white-space: pre-line;
     margin: 0;
     padding: 0;
-    padding-left: 10px; /* Memberikan padding di sebelah kiri kutipan */
+    padding-left: 10px;
     color: #5E5E5E;
 }
 .ava{
@@ -264,4 +275,37 @@ footer{
 
 /* Media query for laptop */
 @media screen and (min-width: 1024px) {
+}
+
+
+
+/* Styling media query terbaru */
+/* XL Desktop */
+@media screen and (min-width : 1300px){
+    .section-contact{
+        justify-content: center;
+        transition: 0.5px;
+        -webkit-transition: 0.5px;
+        -moz-transition: 0.5px;
+        -ms-transition: 0.5px;
+        -o-transition: 0.5px;
+}
+    .contact-container{
+        width: fit-content;
+    }
+    .oursocnet{
+        margin-right:0px;
+    }
+}
+
+
+/* L Desktop */
+@media screen and (min-width : 992px) and (max-width : 1290px){
+
+}
+
+
+/* M Device / Tablet */
+@media screen and (min-width : 768px) and (max-width : 930px){
+
 }
