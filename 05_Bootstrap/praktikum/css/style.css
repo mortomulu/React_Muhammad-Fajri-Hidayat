@@ -123,11 +123,11 @@
     height: 40px;
     width: 490px;
     border: none;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
+    border-radius: 100% !important;
+    -webkit-border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    -ms-border-radius: 100% !important;
+    -o-border-radius: 100% !important;
     padding-left: 30px;
 }
 input[type="text"]:focus {
@@ -390,7 +390,6 @@ footer{
 }
     .input{
         width: 70%;
-        margin-top: 10px;
          
     }
     .button{
