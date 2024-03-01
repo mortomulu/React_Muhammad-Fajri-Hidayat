@@ -107,7 +107,7 @@
     font-size: 15px;
 }
 .newslatter-form{
-    width: 636px;
+    display: flex;
     height: 42.5px;
     background-color: #FFFFFF;
     border-radius: 50px;
