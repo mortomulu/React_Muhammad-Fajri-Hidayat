@@ -22,3 +22,14 @@ TAILWIND
 Tailwind CSS adalah kerangka kerja CSS yang memberikan kelas-kelas utilitas yang fleksibel untuk membangun antarmuka pengguna. Pengembang menggunakan kelas-kelas ini langsung di elemen HTML untuk mengatur tampilan dan perilaku mereka. Tailwind memungkinkan konfigurasi yang disesuaikan, mendukung desain responsif, dan menyediakan mode JIT untuk kompilasi dinamis. Ini memungkinkan pengembang untuk membuat desain yang kreatif dan responsif dengan cepat.
 
 Tailwind merupakan framework yang mengedepankan utility sehingga lebih mudah untuk kita modifikasi sesuai dengan selera dan untuk melihat apa saja yang bisa digunakan dalam tailwind kita bisa melihat pada dokumentasi di web tailwindcss
+
+Core Concept Tailwindcss
+1. Utility-first approach: Tailwind mengadopsi pendekatan "utility-first", di mana setiap kelas CSS mewakili satu properti CSS tunggal. Ini memungkinkan pengguna untuk dengan cepat membangun tampilan dengan menggabungkan kelas-kelas ini secara langsung di dalam HTML, tanpa perlu menulis CSS khusus.
+
+2. Atomic CSS: Pendekatan ini juga dikenal sebagai "Atomic CSS" karena kelas-kelas ini berfungsi secara mandiri dan dapat dikombinasikan dengan mudah untuk menciptakan gaya yang diinginkan.
+
+3. Customization: Meskipun Tailwind menyediakan banyak kelas utilitas bawaan, ia juga dapat disesuaikan sepenuhnya. Pengguna dapat menyesuaikan setiap aspek dari desain mereka dengan mengubah konfigurasi Tailwind, termasuk menambahkan kelas-kelas kustom.
+
+4. Responsive design: Tailwind menyediakan kelas-kelas responsif yang memungkinkan pengguna untuk dengan mudah membuat tampilan yang responsif di berbagai ukuran layar.
+
+5. JIT (Just-In-Time) mode: Mode JIT Tailwind memungkinkan pengguna untuk menghasilkan CSS yang dioptimalkan secara dinamis saat aplikasi dibangun, mengurangi ukuran file CSS yang dihasilkan dan meningkatkan kecepatan pengembangan.
