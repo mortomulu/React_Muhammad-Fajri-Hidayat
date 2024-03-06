@@ -1,0 +1,33 @@
+JAVASCRIPT REFRESHMENT SUMMARY
+Date : Wed, 06 March 2024
+
+1. JS Core Industri
+    - Pada saat ini js sangat banyak dibutuhkan oleh industri dan hal tersebut menjadikan kemampuan dalam menggunakan bahasa javascript sangatlah penting
+    - js juga banyak digunakan untuk berbagai framework seperti salah satunya react
+     
+3. Bagaimana Coding Menggunakan AI
+    - Memahami cara bekerja dari coding dan melakukan coding menggunakan bantuan AI seperti dalam mengidentifikasi error
+    - Juga harus mempelajari dasar dari coding sehingga dapat melakukan solve dari bug bug yang rumit yang tidak bisa diselesaikan oleh AI, dan AI hanya mempercepat pekerjaan kita
+       
+5. Variabel
+    Variabel dalam JavaScript adalah tempat untuk menyimpan data. Ada tiga cara untuk mendeklarasikan variabel: var, let, dan const.
+    - var digunakan untuk mendeklarasikan variabel global atau lokal yang dapat diubah nilainya., var merupakan tipe data yang kurang direkomendasikan untuk digunakan karena sering terjadi error
+    - let digunakan untuk mendeklarasikan variabel lokal yang nilainya dapat diubah.
+    - const digunakan untuk mendeklarasikan variabel lokal yang nilainya tetap atau tidak dapat diubah setelah diinisialisasi.
+      
+7. Destructering
+    - Destructering merupakan menyalin nilai dari array, object atau array of object dan menyimpan dalam variabel baru
+    - Spread : Spread operator (...) adalah fitur baru dalam JavaScript yang memungkinkan Anda untuk memecah atau menguraikan iterable (seperti array atau string) menjadi elemen individu. Ini sangat berguna untuk memperluas nilai dari satu array ke array lain atau menyebarkan properti objek ke objek baru. 
+   
+9. Method
+     Dalam JavaScript, method adalah fungsi yang terkait dengan objek. Ini berarti method adalah properti dari objek yang berisi sebuah fungsi. Ketika method dipanggil, ia akan beroperasi pada objek yang telah didefinisikan, dan bisa juga mengakses dan memanipulasi data dalam objek tersebut.
+     - concat : Metode concat() adalah metode yang digunakan untuk menggabungkan dua atau lebih array menjadi satu array baru. Ini adalah salah satu cara yang paling umum digunakan untuk menggabungkan array dalam JavaScript.
+     - map : digunakan untuk membuat array baru dengan hasil pemanggilan fungsi callback pada setiap elemen dalam array yang ada. Metode map() tidak mengubah array asli, tetapi mengembalikan array baru yang berisi hasil dari pemanggilan fungsi callback untuk setiap elemen dalam array. 
+     - foreach : Metode forEach() adalah metode bawaan dari JavaScript yang digunakan untuk menjalankan sebuah fungsi pada setiap elemen dalam array. Ini memungkinkan Anda untuk melakukan iterasi atau loop melalui setiap elemen array tanpa menggunakan loop for atau while. Metode ini sangat berguna untuk menjalankan operasi atau tindakan yang sama pada setiap elemen array tanpa melakukan modifikasi array itu sendiri
+     - slice : Saat menggunakan metode slice() dengan argumen slice(1, 4), ini berarti mengambil elemen dari index 1 hingga (tetapi tidak termasuk) index 4. Jadi, elemen dengan indeks 1, 2, dan 3 akan disertakan dalam array hasilnya. Dalam istilah matematis, [1, 4) mewakili rentang indeks dari 1 hingga 4, tetapi tidak termasuk indeks 4 itu sendiri. Sehingga hanya indeks 1, 2, dan 3 yang akan disertakan. Terima kasih telah mengklarifikasi.
+     - filter : Metode filter() pada JavaScript digunakan untuk membuat array baru yang berisi semua elemen dari array asli yang memenuhi suatu kondisi yang ditentukan oleh fungsi callback. Ini adalah cara yang sangat berguna untuk "mengfilter" elemen dalam array berdasarkan kriteria tertentu.
+     - reduce : Metode reduce() pada JavaScript digunakan untuk mengurangi (reduce) elemen-elemen dalam array menjadi nilai tunggal berdasarkan suatu fungsi yang diberikan. Ini digunakan untuk melakukan agregasi atau pengolahan data di dalam array menjadi satu nilai.
+       
+11. Control Flow
+12. Function
+13. Class
