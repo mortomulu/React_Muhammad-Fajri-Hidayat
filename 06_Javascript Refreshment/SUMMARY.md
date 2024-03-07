@@ -29,5 +29,17 @@ Date : Wed, 06 March 2024
      - reduce : Metode reduce() pada JavaScript digunakan untuk mengurangi (reduce) elemen-elemen dalam array menjadi nilai tunggal berdasarkan suatu fungsi yang diberikan. Ini digunakan untuk melakukan agregasi atau pengolahan data di dalam array menjadi satu nilai.
        
 11. Control Flow
-12. Function
-13. Class
+    - mekanisme yang digunakan untuk mengendalikan aliran eksekusi, seperti kondisional (seperti pernyataan if), perulangan (seperti perulangan for dan while), dan percabangan (seperti pernyataan switch).
+    - pengulangan : for, while, do while
+    - percabangan : if else, switch, block, try catch, break, continue, throw
+    
+13. Function
+    - function expression : mendefinisikan fungsi dengan menyimpannya dalam variabel. bisa diberikan nama (disebut named function expression) atau tidak (disebut anonymous function expression). sebagai argumen untuk fungsi lain.
+    - arrow function : cara baru untuk menulis fungsi dalam JavaScript yang diperkenalkan dalam ECMAScript 6 (ES6). lebih singkat dan ringkas daripada function expression.  tidak memiliki konteks this sendiri; mereka menggunakan konteks this dari lingkup yang mengelilinginya (lexical this). Arrow function selalu anonymous. umumnya digunakan untuk fungsi-fungsi pendek dan callback. 
+    
+15. Class
+    -  sebuah prototipe untuk membuat objek. Ini adalah konstruksi sintaksis yang lebih deklaratif dan mudah dipahami yang memungkinkan Anda untuk membuat objek dengan properti dan metode tertentu.
+    -  constructor : Di JavaScript, konstruktor adalah sebuah metode khusus yang digunakan untuk menginisialisasi objek yang dibuat dari sebuah class. Konstruktor memiliki nama khusus constructor dan dieksekusi secara otomatis saat objek dibuat menggunakan class tersebut. Dalam konstruktor, Anda dapat menetapkan nilai awal ke properti objek menggunakan parameter yang diterima. Ini memungkinkan Anda untuk mengatur keadaan awal objek dan menginisialisasi propertinya sesuai dengan nilai yang diberikan. Setiap class hanya dapat memiliki satu konstruktor, dan konstruktor tersebut digunakan untuk melakukan inisialisasi objek secara otomatis pada saat pembuatan objek dari class yang bersangkutan.
+    -  method : fungsi yang terkait dengan sebuah objek. Metode ini digunakan untuk melakukan tindakan tertentu pada objek atau mengembalikan nilai yang berkaitan dengan objek tersebut. Metode dapat ditambahkan ke sebuah objek setelah objek tersebut dibuat, atau didefinisikan di dalam class untuk membuat blueprint objek yang memiliki perilaku tertentu. Dalam konteks class, metode ditambahkan sebagai properti pada class tersebut.
+    -  attributes : nilai yang terkait dengan sebuah objek. Atribut ini mendefinisikan karakteristik atau keadaan dari objek tersebut.
+    -  extends : membuat subclass (kelas turunan) dari sebuah kelas (kelas induk atau superclass) yang sudah ada sebelumnya. Konsep ini dikenal sebagai pewarisan atau inheritance, di mana subclass dapat mewarisi properti dan metode dari superclass-nya. Dengan menggunakan extend, subclass dapat menambahkan perilaku tambahan atau memodifikasi perilaku yang sudah ada dari superclass.
