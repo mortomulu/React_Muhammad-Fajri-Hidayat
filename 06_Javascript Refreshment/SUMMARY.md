@@ -43,6 +43,7 @@ Date : Wed, 06 March 2024
     -  method : fungsi yang terkait dengan sebuah objek. Metode ini digunakan untuk melakukan tindakan tertentu pada objek atau mengembalikan nilai yang berkaitan dengan objek tersebut. Metode dapat ditambahkan ke sebuah objek setelah objek tersebut dibuat, atau didefinisikan di dalam class untuk membuat blueprint objek yang memiliki perilaku tertentu. Dalam konteks class, metode ditambahkan sebagai properti pada class tersebut.
     -  attributes : nilai yang terkait dengan sebuah objek. Atribut ini mendefinisikan karakteristik atau keadaan dari objek tersebut.
     -  extends : membuat subclass (kelas turunan) dari sebuah kelas (kelas induk atau superclass) yang sudah ada sebelumnya. Konsep ini dikenal sebagai pewarisan atau inheritance, di mana subclass dapat mewarisi properti dan metode dari superclass-nya. Dengan menggunakan extend, subclass dapat menambahkan perilaku tambahan atau memodifikasi perilaku yang sudah ada dari superclass.
+    -  4 Pilar OOP : Encapsulation, Inheritance, Polymorphism, and Abstraction
 
 9. Async & Await
     - synchronus : sinkronus JavaScript merujuk pada eksekusi kode yang berurutan, di mana setiap tugas harus menunggu tugas sebelumnya selesai sebelum dapat dijalankan.
