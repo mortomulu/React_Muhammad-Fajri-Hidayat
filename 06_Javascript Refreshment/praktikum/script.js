@@ -26,13 +26,36 @@ productName.addEventListener("input", function() {
     }
 });
 
-submit.addEventListener("click", function(event){
-    event.preventDefault();
-    if(productName.value == "" || productPrice.value == "" || productCategory.value === "" || fileInput == ""){
-        alert('Please enter a valid Input.')
+ function validation(){
+    if(productName.value == "" || productPrice.value == "" || productCategory.value === "" || fileInput == "" || productFresh.value === ""){
+        alert('The input must be filled in')
     }else{
 
     }
+}
+
+function cekDisable(){
+    if(validation()){
+        submit.classList.add(' disabled:opacity-75')
+    }
+}
+
+submit.addEventListener("click", function(event){
+    if(validation()){
+        event.preventDefault()
+    }
+})
+
+productName.addEventListener('change', function(){
+    cekDisable()
+})
+
+productCategory.addEventListener('change', function(){
+    cekDisable()
+})
+
+productPrice.addEventListener('change', function(){
+    cekDisable()
 })
 
 form.addEventListener('submit', function(event) {

@@ -15,6 +15,9 @@
         input[type="file"]::-webkit-file-upload-button {
             background-color: #0D6EFD;
         }
+        input[type="file"]::-webkit-file-upload-button:hover{
+            background-color: #0D6EFD;
+        }
     </style>
 
     <title>Create Product</title>
@@ -154,12 +157,12 @@
             <h2 class="font-medium text-2xl">Detail Product</h2>
              <div class="mt-4 grid grid-cols-6 row-auto gap-x-10 gap-y-5">
                 <div class="first-name col-span-4">
-                    <label class="text-base" for="">Product Name</label>
-                    <input type="text" name="productname" id="productName" class="w-full mt-3 border-[#CED4DA] rounded" git maxlength="25">
+                    <label class="text-base" for="productName">Product Name</label>
+                    <input type="text" name="productName" id="productName" class="w-full mt-3 border-[#CED4DA] rounded" git maxlength="25">
                 </div>
                 <div class="nationality col-span-3">
-                    <label for="Nationality">Product Category</label>
-                    <select id="productCategory" name="productCategory" autocomplete="country-name" git class="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <label for="productCategory">Product Category</label>
+                    <select required id="productCategory" name="productCategory" autocomplete="country-name" git class="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option value="">&nbsp;&nbsp;Choose...</option>
                         <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
                         <option value="Malaysia">&nbsp;&nbsp;Malaysia</option>
@@ -167,33 +170,33 @@
                     </select>
                 </div>
                 <div class="col-span-4">
-                    <label for="">Image of Product</label>
-                    <input type="file" name="image" id="image" placeholder="you@example.com" git class="file:bg-[#0D6EFD] file:text-white border-[#0D6EFD] text-[#0D6EFD] border mt-3 rounded">
+                    <label for="image">Image of Product</label>
+                    <input type="file" name="image" id="image"  git class="file:bg-[#0D6EFD] file:text-white border-[#0D6EFD] text-[#0D6EFD] border mt-3 rounded">
                 </div>
                 <div class="gender col-span-6">
-                    <label for="">Product Freshness</label>
+                    <label for="productFresh">Product Freshness</label>
                     <div class="mt-3">
-                        <input type="radio" value="brandNew" name="productFresh" id="brandNew" git>
+                        <input type="radio" value="Brand New" name="productFresh" id="productFresh">
                         <label for="" class="ml-1">Brand New</label>
                     </div>
                     <div class="mt-1">
-                        <input type="radio" value="secondHand" name="productFresh" id="secondHand" git>
+                        <input type="radio" value="Second Hand" name="productFresh" id="productFresh">
                         <label for="" class="ml-1">Second Hand</label>
                     </div>
                     <div class="mt-1">
-                        <input type="radio" value="refufbished"  name="productFresh" id="refufbished" git>
+                        <input type="radio" value="Refufbished"  name="productFresh" id="productFresh">
                         <label for="" class="ml-1">Refufbished</label>
                     </div>
                 </div>
                 <div class="col-span-6">
-                    <label for="">Additional Description</label><br>
+                    <label for="additionalDesc">Additional Description</label><br>
                     <textarea name="additionalDesc" id="additionalDesc" cols="30" rows="4" class="w-full mt-3 border-[#CED4DA] rounded"></textarea>
                 </div>
                 <div class="col-span-6">
-                    <label for="">Product Price</label>
+                    <label for="productPrice">Product Price</label>
                     <input type="number" name="productPrice" id="productPrice" placeholder="$1" class="w-full mt-3 border-[#CED4DA] rounded">
                 </div>
-                <input value="submit" type="submit" class="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md" id="submit">Submit</input>
+                <input value="submit" type="submit"  id="submit" class="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"></input>
              </div>
         </form>
     </section>
