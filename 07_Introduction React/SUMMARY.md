@@ -10,3 +10,5 @@ Adapun React Native adalah sebuah framework pengembangan aplikasi mobile yang me
   3. Write Anywhere : Salah satu keunggulan React adalah kemampuannya untuk menulis kode satu kali dan menggunakan kembali untuk berbagai platform. Dengan React Native, misalnya, pengembang dapat menggunakan JavaScript untuk membangun aplikasi mobile untuk iOS dan Android secara bersamaan. Ini menghemat waktu dan usaha dalam pengembangan aplikasi cross-platform.
   4. Teknologi yang populer : React telah menjadi salah satu teknologi yang paling populer dalam pengembangan web dan mobile. hal ini dibuktikan dengan chart pada stack overflow yang menyebutkan bahwa react menjadi teknologi yang populer dan banyak digunakan oleh developer
      
+- JSX : jsx merupakan dasar untuk bisa menggunakan react, JSX adalah ekstensi sintaksis untuk JavaScript yang memungkinkan penulisan kode HTML di dalam kode JavaScript, memudahkan pembuatan dan manipulasi antarmuka pengguna dalam aplikasi web React.
+- JSX harus dibungkus dengan satu div, dibungkus dengan div lebih dari satu maka akan terjadi error
