@@ -50,9 +50,10 @@ function cekDisable() {
 
 
 // Penambahan table ketika melakukan input
-let productTableBody; // Global variable to store reference to table body
+
 
 submit.addEventListener('click', function() {
+  let productTableBody; // Global variable to store reference to table body
   // Check if table already exists
   if (!productTableBody) {
     // Create the table if it doesn't exist
