@@ -1,6 +1,14 @@
 import Article from "./data"
 
 export default function HeroForm(){
+
+  function validateProductName(e){
+    const value = e.target.value
+    value.length > 10 && alert('Tidak boleh melebihi 10 karakter')
+    value.length > 25 && alert('Last Name must not exceed 25 characters.')
+    value.trim() == "" && alert('Please enter a valid product name.')
+  }
+
     return(
         <>
         <style
@@ -130,6 +138,7 @@ export default function HeroForm(){
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     git=""
                     maxLength={25}
+                    onChange={validateProductName}
                   />
                 </div>
                 <div className="nationality col-span-3">
@@ -217,6 +226,7 @@ export default function HeroForm(){
                 </div>
                 <input
                   defaultValue="submit"
+                  onClick={validateProductName}
                   type="submit"
                   id="submit"
                   className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"
