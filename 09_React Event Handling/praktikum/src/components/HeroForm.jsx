@@ -3,10 +3,38 @@ import Article from "./data"
 export default function HeroForm(){
 
   function validateProductName(e){
+    e.preventDefault()
+
+    const input = e.target;
     const value = e.target.value
-    value.length > 10 && alert('Tidak boleh melebihi 10 karakter')
-    value.length > 25 && alert('Last Name must not exceed 25 characters.')
-    value.trim() == "" && alert('Please enter a valid product name.')
+    let hasError = false
+
+    if (value.length > 10) {
+      alert('Tidak boleh melebihi 10 karakter');
+      hasError = true;
+    }
+
+    if (value.length > 25) {
+      alert('Last Name must not exceed 25 characters.');
+      hasError = true;
+    }
+    
+    if (value.trim() == ""){
+      alert('Please enter a valid product name.')
+      hasError = true
+    }
+    
+    input.style.border = hasError ? 'solid 1px red' : ''
+  }
+
+  function validateProductNameSubmit(e){
+    e.preventDefault()
+    const value = e.target.value
+
+    if (value.trim() == ""){
+      alert('Please enter a valid product name.')
+      hasError = true
+    }
   }
 
     return(
@@ -226,7 +254,7 @@ export default function HeroForm(){
                 </div>
                 <input
                   defaultValue="submit"
-                  onClick={validateProductName}
+                  onClick={validateProductNameSubmit}
                   type="submit"
                   id="submit"
                   className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"
