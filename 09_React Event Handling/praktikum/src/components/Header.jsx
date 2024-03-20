@@ -1,9 +1,18 @@
+import { setGlobalState, useGlobalState } from "../state/global"
+
 export default function Header(){
 
+  // fungsi print console mathrandom ketika klik button
   function MathRandom(){
     const randomNumberPecahan = Math.random() * 10
     const randomNumberBulat = Math.floor(randomNumberPecahan)
     console.log(randomNumberBulat)
+  }
+
+  // mengganti state lang sesuai dengan value opsi
+  const handleLang = (e) => {
+    console.log(e.target.value)
+    setGlobalState('language', e.target.value)
   }
 
     return(
@@ -60,7 +69,7 @@ export default function Header(){
                   className="links ml-auto hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                   id="mobile-menu-2"
                 >
-                  <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                  <ul className="flex items-center flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li className="sm:hidden lg:inline">
                       <a
                         href="#"
@@ -109,6 +118,20 @@ export default function Header(){
                       >
                         About
                       </a>
+                    </li>
+                    <li>
+                      <select
+                        id="language"
+                        name="language"
+                        autoComplete="language"
+                        onChange={handleLang}
+                        git=""
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                      >
+                         
+                        <option value="en">&nbsp;&nbsp;En</option>
+                        <option value="id">&nbsp;&nbsp;Id</option>
+                      </select>
                     </li>
                   </ul>
                 </div>

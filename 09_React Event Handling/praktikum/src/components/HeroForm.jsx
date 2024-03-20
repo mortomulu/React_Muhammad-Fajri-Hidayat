@@ -1,7 +1,9 @@
+import { useGlobalState } from "../state/global";
 import Article from "./data"
 
 export default function HeroForm(){
 
+  // fungsi validasi ketika input
   function validateProductName(e){
     e.preventDefault()
 
@@ -27,6 +29,7 @@ export default function HeroForm(){
     input.style.border = hasError ? 'solid 1px red' : ''
   }
 
+  // fungsi validasi ketika melakukan submit
   function validateProductNameSubmit(e){
     e.preventDefault()
     const value = e.target.value
@@ -36,6 +39,11 @@ export default function HeroForm(){
       hasError = true
     }
   }
+
+  // variabel untuk mengganti language
+  const [lang] = useGlobalState('language')
+  const title = Article.title?.[lang]
+  const teks = Article.description?.[lang]
 
     return(
         <>
@@ -147,9 +155,9 @@ export default function HeroForm(){
                 Bootstrap’s
                 <div className="tooltip-arrow" data-popper-arrow="" />
               </div>
-              <h1 className="text-3xl font-bold">{Article.title.en}</h1>
+              <h1 className="text-3xl font-bold">{title}</h1>
               <p className="text-center text-xl text-[#212529] font-light">
-                 {Article.description.en}
+                 {teks}
               </p>
             </div>
             <form action="" className="form w-3/4 pt-10 px-10">
