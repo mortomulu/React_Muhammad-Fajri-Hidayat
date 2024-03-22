@@ -31,3 +31,58 @@ USE STATE (Thursday, 21 March 2024)
 * Merubah array of object : biasanya ketika menggunaakan api
 * state secara best practice dibuat se clean mungkin
 * callback dalam setstate berisi state
+
+
+<h1>USE HOOK</h1>
+(Friday, 22 March 2024)
+
+* RFC : react functional component
+* RCC : react class component
+* Class extend component : ketika menggunakan class component harus melakukan extend terhadap component dari react dengan terlebih dahulu melakukan import
+  - Keunggulan: Dulu, class component sering digunakan karena kemampuannya untuk menggunakan fitur-fitur seperti state, siklus hidup, dan konteks dengan lebih mudah.
+  - Kekurangan: Namun, class component memiliki sintaks yang lebih panjang dan kompleks dibandingkan dengan functional component. Mereka juga cenderung memiliki lebih banyak boilerplate code.
+
+* this : cari file yang ada disini, contoh :
+  - const obj = {
+        name: 'John',
+        greet: function() {
+          console.log('Hello, ' + this.name);
+        }
+      };
+      obj.greet(); // Output: Hello, John
+  - function sayHello() {
+      console.log('Hello, ' + this);
+    }
+    sayHello();
+  - function Person(name) {
+      this.name = name;
+    }
+    const person1 = new Person('Alice');
+    console.log(person1.name); // Output: Alice
+
+
+<h2>LIFE CYCLE</h2>
+* Mounting: Fase ini terjadi ketika komponen pertama kali ditambahkan ke DOM. Metode-metode siklus hidup yang terkait dengan fase ini antara lain:
+  - constructor()
+  - static getDerivedStateFromProps()
+  - render()
+  - componentDidMount()
+
+* Updating: Fase ini terjadi ketika props atau state sebuah komponen berubah. Metode-metode siklus hidup yang terkait dengan fase ini antara lain:
+  - static getDerivedStateFromProps()
+  - shouldComponentUpdate()
+  - render()
+  - getSnapshotBeforeUpdate()
+  - componentDidUpdate()
+ 
+* Unmounting: Fase ini terjadi ketika sebuah komponen dihapus dari DOM. Metode siklus hidup yang terkait dengan fase ini adalah:
+  - componentWillUnmount()
+ 
+* Use Effect seperti lifecycle pada class component
+  - Use Effect sekali : seperti component will mount
+  - use effect tergantung trigger : seperti component will update
+
+* Use Effect biasanya digunakan untuk validasi dengan trigger sehingga setiap state berubah dilakukan validasi
+* munculin modal atau apapun menggunakan mainan state boolean
+* validasi react pake library
+* custom hooks : Custom hooks adalah fungsi JavaScript biasa yang mengandung logika berbagi yang dapat digunakan di beberapa komponen dalam aplikasi React. Mereka memungkinkan Anda untuk mengisolasi logika yang dapat digunakan kembali (seperti mengelola state, efek samping, atau kode pengolahan data lainnya) dari komponen React Anda.
