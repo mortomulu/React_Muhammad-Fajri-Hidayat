@@ -287,6 +287,7 @@ export default function HeroForm(){
                        <th className="px-4 py-2">Kategori Produk</th>
                        <th className="px-4 py-2">Kesegaran Produk</th>
                        <th className="px-4 py-2">Harga Produk</th>
+                       <th className="px-4 py-2">Action</th>
                      </tr>
                    </thead>
                    <tbody>
@@ -297,6 +298,10 @@ export default function HeroForm(){
                          <td className="border px-4 py-2">{data.productCategory}</td>
                          <td className="border px-4 py-2">{data.productFreshness}</td>
                          <td className="border px-4 py-2">{data.productPrice}</td>
+                         <td className="border px-4 py-2 gap-1 flex justify-center">
+                            <button className=" px-2 py-1 bg-red-600 text-white text-sm rounded">Delete</button>
+                            <button className="px-2 py-1 bg-green-500 text-white text-sm rounded">Edit</button>
+                         </td>
                        </tr>
                      ))}
                    </tbody>
