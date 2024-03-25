@@ -16,7 +16,7 @@ export default function ListProduct (){
                   <button
                     data-modal-target="popup-modal"
                     data-modal-toggle="popup-modal"
-                    className="border bg-blue-600 border-blue-600 w-1/2 p-2 text-white"
+                    className="border bg-blue-600 border-blue-600 w-1/2 p-2 text-white rounded-l-md"
                   >
                     Deletion
                   </button>
@@ -86,7 +86,7 @@ export default function ListProduct (){
                       </div>
                     </div>
                   </div>
-                  <button className="border border-blue-600 w-1/2 p-2">Search</button>
+                  <button className="border border-blue-600 w-1/2 p-2 rounded-r-md">Search</button>
                 </div>
               </div>
             </div>

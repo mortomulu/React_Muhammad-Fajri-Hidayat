@@ -3,43 +3,6 @@ import Article from "../assets/data";
 
 export default function HeroForm(){
 
-  // fungsi validasi ketika input
-  function validateProductName(e){
-    e.preventDefault()
-
-    const input = e.target;
-    const value = e.target.value
-    let hasError = false
-
-    if (value.length > 10) {
-      alert('Tidak boleh melebihi 10 karakter');
-      hasError = true;
-    }
-
-    if (value.length > 25) {
-      alert('Last Name must not exceed 25 characters.');
-      hasError = true;
-    }
-    
-    if (value.trim() == ""){
-      alert('Please enter a valid product name.')
-      hasError = true
-    }
-    
-    input.style.border = hasError ? 'solid 1px red' : ''
-  }
-
-  // fungsi validasi ketika melakukan submit
-  function validateProductNameSubmit(e){
-    e.preventDefault()
-    const value = e.target.value
-
-    if (value.trim() == ""){
-      alert('Please enter a valid product name.')
-      hasError = true
-    }
-  }
-
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
   const title = Article.title?.[lang]
@@ -174,7 +137,7 @@ export default function HeroForm(){
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     git=""
                     maxLength={25}
-                    onChange={validateProductName}
+                    //onChange={validateProductName}
                   />
                 </div>
                 <div className="nationality col-span-3">
@@ -262,7 +225,7 @@ export default function HeroForm(){
                 </div>
                 <input
                   defaultValue="submit"
-                  onClick={validateProductNameSubmit}
+                  //onClick={validateProductNameSubmit}
                   type="submit"
                   id="submit"
                   className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"
