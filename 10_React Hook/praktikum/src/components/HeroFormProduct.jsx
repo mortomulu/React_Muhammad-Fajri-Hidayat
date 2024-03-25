@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 
@@ -11,13 +11,14 @@ export default function HeroForm(){
     productFresh: ' ',
     productPrice:' '
   })
-
+  
   // fungsi untuk menangkap value input
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setInput(prevInput => ({...prevInput, [name]: value}));
-    console.log(input)
   };
+
+  console.log(input)
 
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
