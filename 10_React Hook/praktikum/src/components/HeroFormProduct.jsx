@@ -5,20 +5,51 @@ import Article from "../assets/data";
 export default function HeroForm(){
 
   //state object untuk menyimpan value input
-  const[input, setInput] = useState({
-    productName: ' ',
-    productCategory: ' ',
-    productFresh: ' ',
-    productPrice:' '
-  })
-  
-  // fungsi untuk menangkap value input
+  const [input, setInput] = useState({
+    id: '', // ID akan diisi secara otomatis
+    productName: '',
+    productCategory: '',
+    productFreshness: '',
+    productPrice: '',
+  });
+
+  // State untuk menandakan apakah form telah disubmit
+  const [submitted, setSubmitted] = useState(false);
+
+  // State untuk menampung data tabel
+  const [tableData, setTableData] = useState([]);
+
+  // State untuk mengelola ID
+  const [nextId, setNextId] = useState(1);
+
+  // Fungsi untuk menangani perubahan input
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setInput(prevInput => ({...prevInput, [name]: value}));
+    setInput((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
-  console.log(input)
+  // Fungsi untuk menangani submit form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Menambahkan data input ke tabel
+    setTableData((prevData) => [...prevData, { ...input, id: nextId }]);
+
+    // Reset state input
+    setInput({
+      id: '', // ID akan diisi secara otomatis
+      productName: '',
+      productCategory: '',
+      productFreshness: '',
+      productPrice: '',
+    });
+
+    // Menambahkan 1 ke ID berikutnya
+    setNextId((prevId) => prevId + 1);
+
+    // Tandai form sebagai submitted
+    setSubmitted(true);
+  };
 
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
@@ -147,7 +178,7 @@ export default function HeroForm(){
                  {teks}
               </p>
             </div>
-            <form action="" className="form w-3/4 pt-10 px-10">
+            <form onSubmit={handleSubmit} action="" className="form w-3/4 pt-10 px-10">
               <h2 className="font-medium text-2xl">Detail Product</h2>
               <div className="mt-8 grid grid-cols-6 row-auto gap-x-10 gap-y-8">
                 <div className="first-name col-span-4">
@@ -160,6 +191,7 @@ export default function HeroForm(){
                     id="productName"
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     git=""  
+                    value={input.productName}
                     onChange={handleChangeInput}                   
                   />
                 </div>
@@ -172,6 +204,7 @@ export default function HeroForm(){
                     git=""
                     className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     onChange={handleChangeInput}
+                    value={input.productCategory}
                   >
                     <option value="">&nbsp;&nbsp;Choose...</option>
                     <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
@@ -197,10 +230,9 @@ export default function HeroForm(){
                     <div key={option.id} className="mt-3 w-full flex flex-row">
                       <input
                         type="radio"
-                        value={option.value}
-                        name="productFresh"
+                        name="productFreshness"
                         id={option.value}
-                         
+                        value={option.value}
                         onChange={handleChangeInput}
                       />
                       <label htmlFor={option.value} className="ml-1">
@@ -231,6 +263,7 @@ export default function HeroForm(){
                     placeholder="$1"
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     onChange={handleChangeInput}
+                    value={input.productPrice}
                   />
                 </div>
                 <input
@@ -242,6 +275,35 @@ export default function HeroForm(){
               </div>
             </form>
           </section>
+          {submitted && (
+               <div className="m-12">
+               <h2 className="text-2xl font-bold mb-4">Data Produk</h2>
+               <div className="overflow-x-auto">
+                 <table className="table-auto border-collapse w-full">
+                   <thead className="bg-gray-200">
+                     <tr>
+                       <th className="px-4 py-2">ID Produk</th>
+                       <th className="px-4 py-2">Nama Produk</th>
+                       <th className="px-4 py-2">Kategori Produk</th>
+                       <th className="px-4 py-2">Kesegaran Produk</th>
+                       <th className="px-4 py-2">Harga Produk</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     {tableData.map((data) => (
+                       <tr key={data.id} className="text-center">
+                         <td className="border px-4 py-2">{data.id}</td>
+                         <td className="border px-4 py-2">{data.productName}</td>
+                         <td className="border px-4 py-2">{data.productCategory}</td>
+                         <td className="border px-4 py-2">{data.productFreshness}</td>
+                         <td className="border px-4 py-2">{data.productPrice}</td>
+                       </tr>
+                     ))}
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+            )}
           </>
     )
 }
