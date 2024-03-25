@@ -86,3 +86,48 @@ USE STATE (Thursday, 21 March 2024)
 * munculin modal atau apapun menggunakan mainan state boolean
 * validasi react pake library
 * custom hooks : Custom hooks adalah fungsi JavaScript biasa yang mengandung logika berbagi yang dapat digunakan di beberapa komponen dalam aplikasi React. Mereka memungkinkan Anda untuk mengisolasi logika yang dapat digunakan kembali (seperti mengelola state, efek samping, atau kode pengolahan data lainnya) dari komponen React Anda.
+
+
+
+CUSTOM HOOKS (Monday, 25 March 2024)
+
+**FUNCTION PROPS**
+* import component ke component
+* penggunaan fungsi hooks pada file yang berbeda dapat dikirim lewat props
+* fungsi props yang dikirim itu berupa fungsi jadi tinggal menyalurkan dengan menyimpan pada variabel
+* jika mau menggunakan fungsi dari file lain dan dalam fungsi tersebut butuh data maka dapat dikirim melalui arrow function event handler
+* yang ada pada folder assets adalah style dan data dan dibedakan per tipe file
+* bisa mengirim beberapa props dengan nama custom sesuai fungsi
+* jika memasukkan parameter harus pake arrow function
+* meskipun mengirim fungsi dari parent 2 namun yang digunakan hanya satu itu bisa
+* jika mendeklarasikan let harus diluar fungsi agar tidak selalu ter load, tetapi lebih baik lagi menggunakan state
+* name pada input harus sama dengan name pada object state useState
+* pengolahan data itu adalah hal yang menantang bagi FE
+*** ketika mengolah data input menggunakan satu useState object sehingga tidak perlu banyak mendeklarasikan useState per input**
+* submit digunakan untuk mengirim data dari input berbentuk objek yang sudah disimpan dalam state
+* jika fungsi dipakai di banyak tempat maka alangkah baik dipisah menjadi satu file tersendiri
+
+**CUSTOM HOOKS**
+* bagus untuk di dunia kerja
+* file tipe js digunakan untuk menyimpan logic
+* file tipe jsx digunakann untuk menampilkan component
+* custom hooks diletakkan pada folder baru yaitu folder utils => custom hooks
+* pada setiap file custom hooks diikuti kata2 use dengan huruf kecil
+* melakukan input {useState, useEffect} from react
+* return dari useState yang dibuat variabel
+* custom hooks juga terdapat fungsi didalamnya
+* dalam pemanggilan custom hooks berbeda dnegan pemanggilam props, deklarasikan langsung pada variabel
+* pada industri, custom hoos sering dipake
+* programmer senior sering make hooks custom pokonama biar rapi amad
+
+**USE REF**
+agar bisa load tanpa render ulang semua component
+
+**USE ID**
+generate id pada setiap list
+
+**Use transition **
+digunakan ketika fetching data
+
+**Use redirect**
+apalah dia apalah(?)
