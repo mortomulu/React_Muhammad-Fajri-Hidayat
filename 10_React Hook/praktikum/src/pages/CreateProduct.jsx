@@ -1,4 +1,4 @@
-import Header from "../components/Header"
+import HeaderProduct from "../components/HeaderProduct"
 import HeroFormProduct from "../components/HeroFormProduct"
 import ListProduct from "../components/ListProduct"
 
@@ -6,7 +6,7 @@ export default function CreateProduct(){
 
     return(
         <>
-          <Header/>
+          <HeaderProduct/>
           <HeroFormProduct/>
           <ListProduct/>
         </>

@@ -1,12 +1,35 @@
+import { useState } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 
 export default function HeroForm(){
 
+  //state object untuk menyimpan value input
+  const[input, setInput] = useState({
+    productName: ' ',
+    productCategory: ' ',
+    productFresh: ' ',
+    productPrice:' '
+  })
+
+  // fungsi untuk menangkap value input
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setInput(prevInput => ({...prevInput, [name]: value}));
+    console.log(input)
+  };
+
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
   const title = Article.title?.[lang]
   const teks = Article.description?.[lang]
+
+  // Opsi untuk radio button
+  const options = [
+    { id:1, label: 'Brand New', value: 'Brand New' },
+    { id:2, label: 'Second Hand', value: 'Second Hand' },
+    { id:3, label: 'Refurbished', value: 'Refurbished' },
+  ];
 
     return(
         <>
@@ -135,9 +158,8 @@ export default function HeroForm(){
                     name="productName"
                     id="productName"
                     className="w-full mt-3 border-[#CED4DA] rounded"
-                    git=""
-                    maxLength={25}
-                    //onChange={validateProductName}
+                    git=""  
+                    onChange={handleChangeInput}                   
                   />
                 </div>
                 <div className="nationality col-span-3">
@@ -148,6 +170,7 @@ export default function HeroForm(){
                     autoComplete="country-name"
                     git=""
                     className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    onChange={handleChangeInput}
                   >
                     <option value="">&nbsp;&nbsp;Choose...</option>
                     <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
@@ -166,41 +189,26 @@ export default function HeroForm(){
                   />
                 </div>
                 <div className="gender col-span-6">
-                  <label className="w-full flex flex-row" htmlFor="productFresh">Product Freshness</label>
-                  <div className="mt-3 w-full flex flex-row">
-                    <input
-                      type="radio"
-                      defaultValue="Brand New"
-                      name="productFresh"
-                      id="productFresh"
-                    />
-                    <label htmlFor="" className="ml-1">
-                      Brand New
-                    </label>
-                  </div>
-                  <div className="mt-1 w-full flex flex-row">
-                    <input
-                      type="radio"
-                      defaultValue="Second Hand"
-                      name="productFresh"
-                      id="productFresh"
-                    />
-                    <label htmlFor="" className="ml-1 ">
-                      Second Hand
-                    </label>
-                  </div>
-                  <div className="mt-1 w-full flex flex-row">
-                    <input
-                      type="radio"
-                      defaultValue="Refufbished"
-                      name="productFresh"
-                      id="productFresh"
-                    />
-                    <label htmlFor="" className="ml-1">
-                      Refufbished
-                    </label>
-                  </div>
+                  <label className="w-full flex flex-row" htmlFor="productFresh">
+                    Product Freshness
+                  </label>
+                  {options.map((option) => (
+                    <div key={option.id} className="mt-3 w-full flex flex-row">
+                      <input
+                        type="radio"
+                        value={option.value}
+                        name="productFresh"
+                        id={option.value}
+                         
+                        onChange={handleChangeInput}
+                      />
+                      <label htmlFor={option.value} className="ml-1">
+                        {option.label}
+                      </label>
+                    </div>
+                  ))}
                 </div>
+
                 <div className="col-span-6">
                   <label className="w-full flex flex-row" htmlFor="additionalDesc">Additional Description</label>
                   <br />
@@ -221,11 +229,11 @@ export default function HeroForm(){
                     id="productPrice"
                     placeholder="$1"
                     className="w-full mt-3 border-[#CED4DA] rounded"
+                    onChange={handleChangeInput}
                   />
                 </div>
                 <input
                   defaultValue="submit"
-                  //onClick={validateProductNameSubmit}
                   type="submit"
                   id="submit"
                   className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"

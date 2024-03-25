@@ -1,7 +1,7 @@
-const Article = {
+const ArticleAcc = {
     title: {
-        id: "Buat Product",
-        en: "Create Product"
+        id: "Buat Akun",
+        en: "Create Account"
     },
     description: {
         id: "Di bawah ini adalah contoh formulir yang dibuat seluruhnya dengan kontrol formulir Bootstrap. Setiap grup formulir yang diperlukan memiliki status validasi yang dapat dipicu dengan mencoba mengirimkan formulir tanpa menyelesaikannya.",
@@ -9,6 +9,4 @@ const Article = {
     }
 };
 
-
-
-export default Article 
+export default ArticleAcc
