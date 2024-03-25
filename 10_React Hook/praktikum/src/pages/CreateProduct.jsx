@@ -1,5 +1,5 @@
 import Header from "../components/Header"
-import HeroForm from "../components/HeroForm"
+import HeroFormProduct from "../components/HeroFormProduct"
 import ListProduct from "../components/ListProduct"
 
 export default function CreateProduct(){
@@ -7,7 +7,7 @@ export default function CreateProduct(){
     return(
         <>
           <Header/>
-          <HeroForm/>
+          <HeroFormProduct/>
           <ListProduct/>
         </>
     )
