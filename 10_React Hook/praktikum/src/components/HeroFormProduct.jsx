@@ -4,9 +4,9 @@ import Article from "../assets/data";
 
 export default function HeroForm(){
 
-  //state object untuk menyimpan value input
+  // State untuk menyimpan value input
   const [input, setInput] = useState({
-    id: '', // ID akan diisi secara otomatis
+    id: '1', // ID akan diisi secara otomatis
     productName: '',
     productCategory: '',
     productFreshness: '',
@@ -28,16 +28,38 @@ export default function HeroForm(){
     setInput((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
+  // Fungsi untuk validasi input
+  const validateInput = () => {
+    let hasError = false;
+
+    // Cek setiap field input
+    for (const key in input) {
+      if (input[key] === '') {
+        hasError = true;
+        break;
+      }
+    }
+
+    return hasError;
+  };
+
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validasi input
+    const hasError = validateInput();
+    if (hasError) {
+      alert('Please fill in all fields.');
+      return;
+    }
 
     // Menambahkan data input ke tabel
     setTableData((prevData) => [...prevData, { ...input, id: nextId }]);
 
     // Reset state input
     setInput({
-      id: '', // ID akan diisi secara otomatis
+      id: '1', // ID akan diisi secara otomatis
       productName: '',
       productCategory: '',
       productFreshness: '',
