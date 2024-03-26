@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
+import { Button, Modal } from "flowbite-react";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
+
 
 export default function HeroForm(){
 
@@ -73,7 +76,14 @@ export default function HeroForm(){
     setSubmitted(true);
   };
 
-  
+
+
+  // State untuk modal
+  const [openModal, setOpenModal] = useState(false);
+
+
+
+
 
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
@@ -301,6 +311,25 @@ export default function HeroForm(){
           </section>
           {submitted && (
               <div className="m-12">
+                <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+                  <Modal.Header />
+                  <Modal.Body>
+                    <div className="text-center">
+                      <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
+                      <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Are you sure you want to delete this product?
+                      </h3>
+                      <div className="flex justify-center gap-4">
+                        <Button color="failure" onClick={() => setOpenModal(false)}>
+                          {"Yes, I'm sure"}
+                        </Button>
+                        <Button color="gray" onClick={() => setOpenModal(false)}>
+                          No, cancel
+                        </Button>
+                      </div>
+                    </div>
+                  </Modal.Body>
+                </Modal>
                 <h2 className="text-2xl font-bold mb-4">Data Produk</h2>
                 <div className="overflow-x-auto">
                   <table className="table-auto border-collapse w-full">
@@ -323,8 +352,8 @@ export default function HeroForm(){
                           <td className="border px-4 py-2">{data.productFreshness}</td>
                           <td className="border px-4 py-2">{data.productPrice}</td>
                           <td className="border px-4 py-2 gap-1 flex justify-center">
-                            <button className="px-2 py-1 bg-red-600 text-white text-sm rounded" onClick={() => showDeleteModal(data.id)}>Delete</button>
-                            <button className="px-2 py-1 bg-green-500 text-white text-sm rounded" onClick={() => showEditModal(data.id)}>Edit</button>
+                            <Button className="px-2 py-1 bg-red-600 text-white text-sm rounded" onClick={() => setOpenModal(true)}>Delete</Button>
+                            <Button className="px-2 py-1 bg-green-500 text-white text-sm rounded">Edit</Button>
                           </td>
                         </tr>
                       ))}
