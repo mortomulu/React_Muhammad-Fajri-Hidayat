@@ -25,7 +25,7 @@ export default function HeroForm(){
   // State untuk mengelola ID
   const [nextId, setNextId] = useState(1);
 
-  // Fungsi untuk menangani perubahan input
+  // Fungsi untuk menangani input
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setInput((prevInput) => ({ ...prevInput, [name]: value }));
@@ -45,6 +45,8 @@ export default function HeroForm(){
 
     return hasError;
   };
+
+
 
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
@@ -78,8 +80,9 @@ export default function HeroForm(){
 
 
 
+
   // State untuk modal
-  const [openModal, setOpenModal] = useState(false);
+  const [openModalDelete, setOpenModalDelete] = useState(false);
 
 
   // state untuk menangkap id pada list
@@ -88,17 +91,19 @@ export default function HeroForm(){
   // fungsi untuk membuka modal dan melakukan set id untuk disimpan dan dipakai
   const handleDeleteButtonClick = (id) => {
     setProductIdToDelete(id);
-    setOpenModal(true);
+    setOpenModalDelete(true);
   };
 
   // Fungsi untuk menghapus data list
   const handleDelete = (id) => {
-    setOpenModal(false)
+    setOpenModalDelete(false)
     const updatedData = tableData.filter((data) => data.id !== id);
     setTableData(updatedData);
   };
 
 
+
+  
 
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
@@ -326,7 +331,7 @@ export default function HeroForm(){
           </section>
           {submitted && (
               <div className="m-12">
-                <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+                <Modal show={openModalDelete} size="md" onClose={() => setOpenModalDelete(false)} popup>
                   <Modal.Header />
                   <Modal.Body>
                     <div className="text-center">
@@ -338,7 +343,7 @@ export default function HeroForm(){
                         <Button color="failure" onClick={() => handleDelete(productIdToDelete)}>
                           {"Yes, I'm sure"}
                         </Button>
-                        <Button color="gray" onClick={() => setOpenModal(false)}>
+                        <Button color="gray" onClick={() => setOpenModalDelete(false)}>
                           No, cancel
                         </Button>
                       </div>
