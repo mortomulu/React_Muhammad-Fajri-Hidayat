@@ -111,39 +111,68 @@ export default function HeroForm(){
   // state untuk menangkap id pada list
   const [productIdToEdit, setProductIdToEdit] = useState(null);
 
+  const [inputEdit, setInputEdit] = useState({
+    id:null, 
+    productName: '',
+    productCategory: '',
+    productFreshness:'',
+    productPrice:''
+  })
+
+
   //fungsi untuk edit
   const handleEditButtonClick = (id) => {
     setProductIdToEdit(id)
     setOpenModal(true)
-  }
-
-  // Fungsi untuk menangani edit
-  const handleEdit = (id) => {
     // Cari index data yang akan diedit berdasarkan ID
     const editedIndex = tableData.find((data) => data.id === id);
     
-    // Buat salinan baru dari data yang akan diedit
-    const editedData = { ...tableData[editedIndex] };
+    setInputEdit({
+      id: editedIndex.id,
+      productName: editedIndex.productName,
+      productCategory: editedIndex.productCategory,
+      productFreshness: editedIndex.productFreshness,
+      productPrice: editedIndex.productPrice
+    })
+  }
 
-    // Perbarui nilai data yang akan diedit dengan nilai input yang baru
-    editedData.productName = input.productName;
-    editedData.productCategory = input.productCategory;
-    editedData.productFreshness = input.productFreshness;
-    editedData.productPrice = input.productPrice;
+  // fungsi menyimpan handle change edit
+  const [formEdit, setFormEdit] = useState({
+    id:null,
+    productName:'',
+    productCategory:'',
+    productFreshness:'',
+    productPrice:''
+  })
 
-    // Buat salinan baru dari array tableData
-    const updatedData = [...tableData];
-
-    // Ganti data yang akan diedit dengan data yang telah diperbarui
-    updatedData[editedIndex] = editedData;
-
-    // Perbarui tableData dengan data yang telah diperbarui
-    setTableData(updatedData);
-
-    // Tutup modal edit
-    setOpenModal(false);
+  // fungsi handleChange input
+  const handleChangeEdit = (e) => {
+    const { name, value } = e.target;
+    setFormEdit((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
+
+  const [editedIndex, setEditedIndex] = useState({ })
+
+
+
+  // Fungsi untuk menyimpan perubahan edit
+const handleSaveEdit = () => {
+  // Cari index data yang akan diedit berdasarkan ID
+  const editedIndex = tableData.findIndex((data) => data.id === productIdToEdit);
+  
+  // Buat salinan baru dari array tableData
+  const updatedData = [...tableData];
+
+  // Perbarui data produk yang ada di updatedData dengan nilai yang baru dari inputEdit
+  updatedData[editedIndex] = inputEdit;
+
+  // Perbarui tableData dengan data yang telah diperbarui
+  setTableData(updatedData);
+
+  // Tutup modal edit
+  setOpenModal(false);
+};
 
 
   
@@ -407,8 +436,8 @@ export default function HeroForm(){
                           name="productName"
                           id="productName"
                           className="w-full mt-3 border-[#CED4DA] rounded"
-                          value={input.productName}
-                          onChange={handleChangeInput}
+                          value={inputEdit.productName}
+                          onChange={handleChangeEdit}
                         />
                       </div>
                       {/* Input untuk kategori produk */}
@@ -419,8 +448,8 @@ export default function HeroForm(){
                           name="productCategory"
                           autoComplete="country-name"
                           className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                          onChange={handleChangeInput}
-                          value={input.productCategory}
+                          onChange={handleChangeEdit}
+                          value={inputEdit.productCategory}
                         >
                           <option value="">&nbsp;&nbsp;Choose...</option>
                           <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
@@ -440,8 +469,8 @@ export default function HeroForm(){
                               name="productFreshness"
                               id={option.value}
                               value={option.value}
-                              checked={input.productFreshness === option.value}
-                              onChange={handleChangeInput}
+                              checked={inputEdit.productFreshness === option.value}
+                              onChange={handleChangeEdit}
                             />
                             <label htmlFor={option.value} className="ml-1">
                               {option.label}
@@ -458,15 +487,15 @@ export default function HeroForm(){
                           id="productPrice"
                           placeholder="$1"
                           className="w-full mt-3 border-[#CED4DA] rounded"
-                          onChange={handleChangeInput}
-                          value={input.productPrice}
+                          onChange={handleChangeEdit}
+                          value={inputEdit.productPrice}
                         />
                       </div>
                     </div>
                   </Modal.Body>
                   <Modal.Footer>
                     {/* Button untuk menyimpan perubahan */}
-                    <Button onClick={() => handleEdit(productIdToEdit)}>Save</Button>
+                    <Button onClick={() => handleSaveEdit(productIdToEdit)}>Save</Button>
                     <Button color="gray" onClick={() => setOpenModal(false)}>
                       Cancel
                     </Button>
