@@ -82,6 +82,21 @@ export default function HeroForm(){
   const [openModal, setOpenModal] = useState(false);
 
 
+  // state untuk menangkap id pada list
+  const [productIdToDelete, setProductIdToDelete] = useState(null);
+
+  // fungsi untuk membuka modal dan melakukan set id untuk disimpan dan dipakai
+  const handleDeleteButtonClick = (id) => {
+    setProductIdToDelete(id);
+    setOpenModal(true);
+  };
+
+  // Fungsi untuk menghapus data list
+  const handleDelete = (id) => {
+    setOpenModal(false)
+    const updatedData = tableData.filter((data) => data.id !== id);
+    setTableData(updatedData);
+  };
 
 
 
@@ -320,7 +335,7 @@ export default function HeroForm(){
                         Are you sure you want to delete this product?
                       </h3>
                       <div className="flex justify-center gap-4">
-                        <Button color="failure" onClick={() => setOpenModal(false)}>
+                        <Button color="failure" onClick={() => handleDelete(productIdToDelete)}>
                           {"Yes, I'm sure"}
                         </Button>
                         <Button color="gray" onClick={() => setOpenModal(false)}>
@@ -352,7 +367,7 @@ export default function HeroForm(){
                           <td className="border px-4 py-2">{data.productFreshness}</td>
                           <td className="border px-4 py-2">{data.productPrice}</td>
                           <td className="border px-4 py-2 gap-1 flex justify-center">
-                            <Button className="px-2 py-1 bg-red-600 text-white text-sm rounded" onClick={() => setOpenModal(true)}>Delete</Button>
+                            <Button className="px-2 py-1 bg-red-600 text-white text-sm rounded" onClick={() => handleDeleteButtonClick(data.id)}>Delete</Button>
                             <Button className="px-2 py-1 bg-green-500 text-white text-sm rounded">Edit</Button>
                           </td>
                         </tr>
