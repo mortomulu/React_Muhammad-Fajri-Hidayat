@@ -112,7 +112,7 @@ export default function HeroForm(){
   const [productIdToEdit, setProductIdToEdit] = useState(null);
 
   const [inputEdit, setInputEdit] = useState({
-    id:null, 
+    id:'', 
     productName: '',
     productCategory: '',
     productFreshness:'',
@@ -125,20 +125,13 @@ export default function HeroForm(){
     setProductIdToEdit(id)
     setOpenModal(true)
     // Cari index data yang akan diedit berdasarkan ID
-    const editedIndex = tableData.find((data) => data.id === id);
-    
-    setInputEdit({
-      id: editedIndex.id,
-      productName: editedIndex.productName,
-      productCategory: editedIndex.productCategory,
-      productFreshness: editedIndex.productFreshness,
-      productPrice: editedIndex.productPrice
-    })
+    const editedProduct = tableData.find((data) => data.id === id);
+    setInputEdit(editedProduct)
   }
 
   // fungsi menyimpan handle change edit
   const [formEdit, setFormEdit] = useState({
-    id:null,
+    id: '',
     productName:'',
     productCategory:'',
     productFreshness:'',
@@ -158,19 +151,12 @@ export default function HeroForm(){
 
   // Fungsi untuk menyimpan perubahan edit
 const handleSaveEdit = () => {
-  // Cari index data yang akan diedit berdasarkan ID
   const editedIndex = tableData.findIndex((data) => data.id === productIdToEdit);
-  
-  // Buat salinan baru dari array tableData
-  const updatedData = [...tableData];
-
-  // Perbarui data produk yang ada di updatedData dengan nilai yang baru dari inputEdit
-  updatedData[editedIndex] = inputEdit;
-
-  // Perbarui tableData dengan data yang telah diperbarui
-  setTableData(updatedData);
-
-  // Tutup modal edit
+  tableData[editedIndex] = {
+    ...tableData[editedIndex],
+    ...formEdit,
+  };
+  setTableData([...tableData]);
   setOpenModal(false);
 };
 
