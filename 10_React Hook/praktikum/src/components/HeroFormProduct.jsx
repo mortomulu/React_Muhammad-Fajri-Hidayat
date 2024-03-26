@@ -33,8 +33,8 @@ export default function HeroForm(){
     let hasError = false;
 
     // Cek setiap field input
-    for (const key in input) {
-      if (input[key] === '') {
+    for (const name in input) {
+      if (input[name] === '') {
         hasError = true;
         break;
       }
@@ -72,6 +72,8 @@ export default function HeroForm(){
     // Tandai form sebagai submitted
     setSubmitted(true);
   };
+
+  
 
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
@@ -298,37 +300,37 @@ export default function HeroForm(){
             </form>
           </section>
           {submitted && (
-               <div className="m-12">
-               <h2 className="text-2xl font-bold mb-4">Data Produk</h2>
-               <div className="overflow-x-auto">
-                 <table className="table-auto border-collapse w-full">
-                   <thead className="bg-gray-200">
-                     <tr>
-                       <th className="px-4 py-2">ID Produk</th>
-                       <th className="px-4 py-2">Nama Produk</th>
-                       <th className="px-4 py-2">Kategori Produk</th>
-                       <th className="px-4 py-2">Kesegaran Produk</th>
-                       <th className="px-4 py-2">Harga Produk</th>
-                       <th className="px-4 py-2">Action</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     {tableData.map((data) => (
-                       <tr key={data.id} className="text-center">
-                         <td className="border px-4 py-2">{data.id}</td>
-                         <td className="border px-4 py-2">{data.productName}</td>
-                         <td className="border px-4 py-2">{data.productCategory}</td>
-                         <td className="border px-4 py-2">{data.productFreshness}</td>
-                         <td className="border px-4 py-2">{data.productPrice}</td>
-                         <td className="border px-4 py-2 gap-1 flex justify-center">
-                            <button className=" px-2 py-1 bg-red-600 text-white text-sm rounded">Delete</button>
-                            <button className="px-2 py-1 bg-green-500 text-white text-sm rounded">Edit</button>
-                         </td>
-                       </tr>
-                     ))}
-                   </tbody>
-                 </table>
-               </div>
+              <div className="m-12">
+                <h2 className="text-2xl font-bold mb-4">Data Produk</h2>
+                <div className="overflow-x-auto">
+                  <table className="table-auto border-collapse w-full">
+                    <thead className="bg-gray-200">
+                      <tr>
+                        <th className="px-4 py-2">ID Produk</th>
+                        <th className="px-4 py-2">Nama Produk</th>
+                        <th className="px-4 py-2">Kategori Produk</th>
+                        <th className="px-4 py-2">Kesegaran Produk</th>
+                        <th className="px-4 py-2">Harga Produk</th>
+                        <th className="px-4 py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {tableData.map((data) => (
+                        <tr key={data.id} className="text-center">
+                          <td className="border px-4 py-2">{data.id}</td>
+                          <td className="border px-4 py-2">{data.productName}</td>
+                          <td className="border px-4 py-2">{data.productCategory}</td>
+                          <td className="border px-4 py-2">{data.productFreshness}</td>
+                          <td className="border px-4 py-2">{data.productPrice}</td>
+                          <td className="border px-4 py-2 gap-1 flex justify-center">
+                            <button className="px-2 py-1 bg-red-600 text-white text-sm rounded" onClick={() => showDeleteModal(data.id)}>Delete</button>
+                            <button className="px-2 py-1 bg-green-500 text-white text-sm rounded" onClick={() => showEditModal(data.id)}>Edit</button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
              </div>
             )}
           </>
