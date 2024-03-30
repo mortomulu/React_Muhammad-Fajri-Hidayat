@@ -1,6 +1,6 @@
 export default function WelcomeSection() {
   return (
-    <div className="p-16  h-[32rem]">
+    <div className="mt-16 p-16  h-[32rem]">
       <div className="m-16 flex flex-col gap-8">
         <p className="  text-3xl">I'am</p>
         <p className="ml-10 font-bold text-5xl ">Mortomulu</p>

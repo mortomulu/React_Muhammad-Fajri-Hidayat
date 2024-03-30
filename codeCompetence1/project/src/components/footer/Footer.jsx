@@ -4,7 +4,7 @@ import NoAdress from "./NoAdress";
 
 export default function Footer() {
   return (
-    <div className="border-y    px-16 py-8 grid grid-cols-3 gap-5">
+    <div className="border-y    px-24 py-16 grid grid-cols-3 gap-5">
       <div className=" ">
         <Brand />
       </div>

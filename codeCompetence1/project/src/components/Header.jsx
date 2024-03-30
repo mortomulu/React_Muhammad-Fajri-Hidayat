@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div className="relative z-50">
-      <div className="py-4 px-16 border flex justify-between absolute z-50 bg-white top-0 left-0 right-0">
+      <div className="py-4 px-16 border flex justify-between z-50 fixed bg-white top-0 left-0 right-0">
         <div className="">
           <svg
             fill="#000000"
@@ -56,13 +56,11 @@ export default function Header() {
               <a href="">Contact</a>
             </li>
             <li>
-              <a href="">About Us</a>
+              <a href="">About Me</a>
             </li>
           </ul>
         </nav>
       </div>
-      <div className="h-16"></div>{" "}
-      {/* Placeholder untuk mencegah overlapping dengan konten */}
     </div>
   );
 }
