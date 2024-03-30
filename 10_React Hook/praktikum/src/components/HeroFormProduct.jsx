@@ -67,7 +67,7 @@ export default function HeroForm(){
       id: '1', // ID akan diisi secara otomatis
       productName: '',
       productCategory: '',
-      productFreshness: '',
+      productFreshness: (''),
       productPrice: '',
     });
 
@@ -347,7 +347,7 @@ const handleSaveEdit = () => {
                         value={option.value}
                         onChange={handleChangeInput}
                       />
-                      <label htmlFor={option.value} className="ml-1">
+                      <label htmlFor={input.value} className="ml-1">
                         {option.label}
                       </label>
                     </div>
