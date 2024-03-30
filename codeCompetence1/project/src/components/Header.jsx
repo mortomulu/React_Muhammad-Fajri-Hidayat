@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <div className="relative z-50">
@@ -55,9 +57,11 @@ export default function Header() {
             <li>
               <a href="">Contact</a>
             </li>
+            <Link to={'/aboutme'}>
             <li>
               <a href="">About Me</a>
             </li>
+            </Link>
           </ul>
         </nav>
       </div>
