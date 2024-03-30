@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function AboutMe() {
   return (
     <div className="flex flex-col">
-      <Link to={'/'}>
+      <Link to={"/"}>
         <div className="absolute top-8 left-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,13 +112,32 @@ export default function AboutMe() {
           <p className="mt-4">
             I'am Fajri, I always experiment with new things; it makes me
             curious. What happens if I create that? I also enjoy creating
-            websites. I can easily grasp the concepts of websites using Tailwind
-            CSS in just 2 months. It's truly surprising.
+            websites. I can easily grasp the concepts of websites using{" "}
+            <a
+              href=""
+              className="underline decoration-sky-700 decoration-2 underline-offset-4"
+            >
+              TailwindCSS
+            </a>{" "}
+            in just 2 months. It's truly surprising.
           </p>
           <p className="mt-4">
             My frontend development journey began with the fundamentals of HTML,
-            CSS, and advanced to mastering JavaScript frameworks like React and
-            Nuxt. Now, I'm actively exploring new frameworks and expanding my
+            CSS, and advanced to mastering JavaScript frameworks like{" "}
+            <a
+              href=""
+              className="underline decoration-sky-400 decoration-2 underline-offset-4"
+            >
+              React
+            </a>{" "}
+            and{" "}
+            <a
+              href=""
+              className="underline decoration-green-500 decoration-2 underline-offset-4"
+            >
+              Nuxt
+            </a>{" "}
+            . Now, I'm actively exploring new frameworks and expanding my
             development skillset.
           </p>
         </div>
