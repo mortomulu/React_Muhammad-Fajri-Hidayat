@@ -25,7 +25,7 @@ export default function HeroForm(){
   // State untuk mengelola ID
   const [nextId, setNextId] = useState(1);
 
-  // Fungsi untuk menangani input
+  // Fungsi untuk menangani input 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setInput((prevInput) => ({ ...prevInput, [name]: value }));
