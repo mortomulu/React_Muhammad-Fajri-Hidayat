@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOptimistic } from "react";
 import herologo from "../assets/hero-img.png";
 
-export const LandingPage = () => {
+export  default function LandingPage  () {
   return (
     <>
       <header>

@@ -8,11 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Use element prop directly within Route */}
-        <Route element={<PrivateRoutes />} path="/">
-          <Route element={<LandingPage />} />
+        {/* Define nested routes directly within the Routes component */}
+        <Route path="/" element={<PrivateRoutes />}>
+          <Route path="/" element={<LandingPage />} />
         </Route>
-        <Route element={<Login />} path="/login" />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
