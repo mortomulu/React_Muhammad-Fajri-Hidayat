@@ -8,8 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Define nested routes directly within the Routes component */}
-        <Route path="/" element={<PrivateRoutes />}>
+        <Route element={<PrivateRoutes />}>
           <Route path="/" element={<LandingPage />} />
         </Route>
         <Route path="/login" element={<Login />} />
