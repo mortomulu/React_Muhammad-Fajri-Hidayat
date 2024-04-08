@@ -119,6 +119,8 @@ export default function HeroForm(){
     productPrice:''
   })
 
+  //better menggunakan state tersebut
+
 
   //fungsi untuk edit
   const handleEditButtonClick = (id) => {
