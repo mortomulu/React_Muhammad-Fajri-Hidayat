@@ -120,6 +120,8 @@ export default function HeroForm(){
   })
 
   //better menggunakan state tersebut
+  // todo change to type script
+  
 
 
   //fungsi untuk edit
