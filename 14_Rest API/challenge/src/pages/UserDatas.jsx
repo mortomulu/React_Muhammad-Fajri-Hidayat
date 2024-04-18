@@ -42,22 +42,23 @@ export default function UserDatas() {
           } catch (error) {
             console.error("error kocak");
           }
-    }
-    const data = {
-      name,
-      age,
-    };
-    try {
-      const response = await axios.post(
-        "https://660fae5c356b87a55c52079b.mockapi.io/todo",
-        data
-      );
-      console.log(response.data);
-      setName("");
-      setAge("");
-      fetchData();
-    } catch (error) {
-      console.error("error kocak");
+    }else{
+      const data = {
+        name,
+        age,
+      };
+      try {
+        const response = await axios.post(
+          "https://660fae5c356b87a55c52079b.mockapi.io/todo",
+          data
+        );
+        console.log(response.data);
+        setName("");
+        setAge("");
+        fetchData();
+      } catch (error) {
+        console.error("error kocak");
+      }
     }
   }
 
