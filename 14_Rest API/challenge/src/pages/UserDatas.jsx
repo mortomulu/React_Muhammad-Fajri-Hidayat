@@ -14,7 +14,7 @@ export default function UserDatas() {
       );
       setUsers(response.data);
     } catch (error) {
-      console.error("api error");
+      console.error(error.massage);
     }
   };
 
@@ -40,7 +40,7 @@ export default function UserDatas() {
             setId('')
             fetchData();
           } catch (error) {
-            console.error("error kocak");
+            console.error(error.massage);
           }
     }else{
       const data = {
@@ -57,7 +57,7 @@ export default function UserDatas() {
         setAge("");
         fetchData();
       } catch (error) {
-        console.error("error kocak");
+        console.error(error.massage);
       }
     }
   }
