@@ -16,3 +16,17 @@ Dengan menggunakan RESTful API, pengembang dapat merancang layanan web yang muda
 
 * Menggunakan axios untuk melakukan fetching data pada API
 * Menggunakan async await untuk mengolah data agar tidak menjadi promise
+
+
+**Friday, 19 April 2024**
+
+* Bestpractice dalam fetching data itu dilakukan hanya sekali saat melakukan load page pertama, kemudian simpan di state dan mainkan statenya
+* Ketika melakukan fetching menggunakan try catch agar tidak error saat api rusak
+* melakukan definisi state error, agar pesan state dapat dimunculkan dala UI
+* useQuery tanstack query enak banget buat handling
+* fetching data diletakkan pada folder utils dan dalam folder api
+* menyimpan fungsi di tempat berbeda dengan komponen untuk menganut OOP
+* error massages ditangkap valuenya dalam state kemudian ditampilkan sebagai komponen dalam satu file
+* jangan melakukan ambil data pada api berkali kali
+* delete array state data api menggunakan method filter
+* dalam pembuatan api spek, fe yang paling bertanggung jawab
