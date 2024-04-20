@@ -1,29 +1,28 @@
 import { useGlobalState } from "../state/global";
+import { useState } from "react";
 import Article from "./data"
 
 export default function HeroForm(){
+
+  const [value, setValue] = useState('')
 
   // fungsi validasi ketika input
   function validateProductName(e){
     e.preventDefault()
 
     const input = e.target;
-    const value = e.target.value
+    setValue(e.target.value)
     let hasError = false
 
     if (value.length > 10) {
       alert('Tidak boleh melebihi 10 karakter');
       hasError = true;
+      setValue('')
     }
 
     if (value.length > 25) {
       alert('Last Name must not exceed 25 characters.');
       hasError = true;
-    }
-    
-    if (value.trim() == ""){
-      alert('Please enter a valid product name.')
-      hasError = true
     }
     
     input.style.border = hasError ? 'solid 1px red' : ''
@@ -174,6 +173,7 @@ export default function HeroForm(){
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     git=""
                     maxLength={25}
+                    value={value}
                     onChange={validateProductName}
                   />
                 </div>
