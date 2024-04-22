@@ -4,10 +4,12 @@ import Article from "./data"
 
 export default function HeroForm(){
 
-  const nameRef = useRef("")
-  const categoryRef = useRef( "")
-  const descRef = useRef( "")
-  const priceRef = useRef( "")
+  const nameRef = useRef()
+  const categoryRef = useRef()
+  const descRef = useRef()
+  const priceRef = useRef()
+
+   
 
   const [productName, setProductName] = useState( '')
   const [productCategory, setProductCategory] = useState( '')
@@ -45,46 +47,38 @@ export default function HeroForm(){
 
   // fungsi validasi ketika melakukan submit
   function validateProductNameSubmit(e) {
-    e.preventDefault()
-    let errorMessage = 'Please enter a valid product name';
-  
+    e.preventDefault();
+
     if (!productName) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
+      setIsValid(false);
+      nameRef.current.style.border = '1px solid red';
     }
     if (!productCategory) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
-    }
-    if (!image) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
-    }
-    if (!productFresh) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
+      setIsValid(false);
+      categoryRef.current.style.border = '1px solid red';
     }
     if (!desc) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
+      setIsValid(false);
+      descRef.current.style.border = '1px solid red';
     }
     if (!price) {
-      setIsValid(false)
-      alert(errorMessage)
-      return 
+      setIsValid(false);
+      priceRef.current.style.border = '1px solid red';
     }
-  
-    setProductName(null);
-    setDesc(null);
-    setProductCategory(null);
-    setProductFresh(null);
-    setImage(null);
-    setPrice(null);
+
+     if (!isValid){
+      alert('please enter a valid input')
+      console.log('woi')
+      return
+     }
+
+    setIsValid(true);
+    setProductName('');
+    setProductCategory('');
+    setDesc('');
+    setPrice('');
+
+    // Lakukan sesuatu setelah submit berhasil
   }
   
   // variabel untuk mengganti language
@@ -222,6 +216,7 @@ export default function HeroForm(){
                     git=""
                     maxLength={25}
                     value={productName}
+                    ref={nameRef}
                     onChange={validateProductName}
                   />
                 </div>
@@ -233,6 +228,7 @@ export default function HeroForm(){
                     autoComplete="country-name"
                     git=""
                     onChange={e => setProductCategory(e.target.value)}
+                    ref={categoryRef}
                     className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
                     <option value="">&nbsp;&nbsp;Choose...</option>
@@ -299,6 +295,7 @@ export default function HeroForm(){
                     id="additionalDesc"
                     cols={30}
                     rows={4}
+                    ref={descRef}
                     onChange={e => setDesc(e.target.value)}
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     defaultValue={""}
@@ -311,6 +308,7 @@ export default function HeroForm(){
                     name="productPrice"
                     id="productPrice"
                     placeholder="$1"
+                    ref={priceRef}
                     onChange={e => setPrice(e.target.value)}
                     className="w-full mt-3 border-[#CED4DA] rounded"
                   />
