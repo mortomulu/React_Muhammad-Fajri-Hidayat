@@ -17,7 +17,7 @@ export default function HeroForm(){
   const [productFresh, setProductFresh] = useState( '')
   const [desc, setDesc] = useState( '')
   const [price, setPrice] = useState( )
-  const [isValid, setIsValid] = useState(true)
+  const [isValid, setIsValid] = useState( )
   const [errorMassage, setErrorMassage] = useState('')
 
   useEffect(() => {
@@ -56,6 +56,12 @@ export default function HeroForm(){
     if (!productCategory) {
       setIsValid(false);
       categoryRef.current.style.border = '1px solid red';
+    }
+    if(!image){
+      setIsValid(false)
+    }
+    if(!productFresh){
+      setIsValid(false)
     }
     if (!desc) {
       setIsValid(false);
