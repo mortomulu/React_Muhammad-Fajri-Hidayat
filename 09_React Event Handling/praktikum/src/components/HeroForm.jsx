@@ -18,7 +18,6 @@ export default function HeroForm(){
   const [desc, setDesc] = useState( '')
   const [price, setPrice] = useState( )
   const [isValid, setIsValid] = useState( )
-  const [errorMassage, setErrorMassage] = useState('')
 
   useEffect(() => {
 
