@@ -30,3 +30,21 @@ Dengan menggunakan RESTful API, pengembang dapat merancang layanan web yang muda
 * jangan melakukan ambil data pada api berkali kali
 * delete array state data api menggunakan method filter
 * dalam pembuatan api spek, fe yang paling bertanggung jawab
+
+
+**AUTHETENTICATION & AUTHORIZATION**
+<hr/>
+*Monday, 22 April 2024*
+
+* HARUS PAHAM SISI BACKEND DAN SISI FRONTEND DALAM AUTENTIKASI
+* capstone belum pake jwt, hanya pake state static
+* otentikasi : mengecek user apakah sudah terdaftar dalam server
+* otorisasi : hak apa saja yang bisa dilakukan dan diakses oleh user berdasarkan data yang terdaftar di server
+* buat fungsi pada setiap page agar ketika belum login maka akan terus menavigate ke page login
+* rotuing ni cukup ribet, berhubungan dengan otentikasi dan otorisasi jadi perlu pendalaman
+* localStorage.setItem(), untuk mengisi local storage set item
+* melakukan pengecekan pada local storage pada setiap halaman apakah sudah login, jika blm login maka akan redirect ke page login
+* JSON.parse ni merubah tipe data string ke tipe data object
+* pada standart industri fungsi fungsi diletakkan pada folder utils
+* lebih bagus pake public dan private routing
+* otentikasi yang paling bagus menggunaan JWT, token ada di local storage dan DB dan kemudian dilakukan pengecekan apakah cocok
