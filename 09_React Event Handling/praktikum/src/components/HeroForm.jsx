@@ -1,44 +1,92 @@
 import { useGlobalState } from "../state/global";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Article from "./data"
 
 export default function HeroForm(){
 
-  const [value, setValue] = useState('')
+  const nameRef = useRef("")
+  const categoryRef = useRef( "")
+  const descRef = useRef( "")
+  const priceRef = useRef( "")
+
+  const [productName, setProductName] = useState( '')
+  const [productCategory, setProductCategory] = useState( '')
+  const [image, setImage] = useState()
+  const [productFresh, setProductFresh] = useState( '')
+  const [desc, setDesc] = useState( '')
+  const [price, setPrice] = useState( )
+  const [isValid, setIsValid] = useState(true)
+  const [errorMassage, setErrorMassage] = useState('')
+
+  useEffect(() => {
+
+  }, [isValid])
 
   // fungsi validasi ketika input
   function validateProductName(e){
     e.preventDefault()
 
     const input = e.target;
-    setValue(e.target.value)
-    let hasError = false
+    setProductName(input.value)
 
-    if (value.length > 10) {
+    if (productName.length > 10) {
       alert('Tidak boleh melebihi 10 karakter');
-      hasError = true;
-      setValue('')
+      setIsValid(false)
+      setProductName('')
     }
 
-    if (value.length > 25) {
+    if (productName.length > 25) {
       alert('Last Name must not exceed 25 characters.');
-      hasError = true;
+      setIsValid(false)
     }
     
-    input.style.border = hasError ? 'solid 1px red' : ''
+    input.style.border = isValid ? '' : 'solid 1px red'
   }
 
   // fungsi validasi ketika melakukan submit
-  function validateProductNameSubmit(e){
+  function validateProductNameSubmit(e) {
     e.preventDefault()
-    const value = e.target.value
-
-    if (value.trim() == ""){
-      alert('Please enter a valid product name.')
-      hasError = true
+    let errorMessage = 'Please enter a valid product name';
+  
+    if (!productName) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
     }
+    if (!productCategory) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
+    }
+    if (!image) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
+    }
+    if (!productFresh) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
+    }
+    if (!desc) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
+    }
+    if (!price) {
+      setIsValid(false)
+      alert(errorMessage)
+      return 
+    }
+  
+    setProductName(null);
+    setDesc(null);
+    setProductCategory(null);
+    setProductFresh(null);
+    setImage(null);
+    setPrice(null);
   }
-
+  
   // variabel untuk mengganti language
   const [lang] = useGlobalState('language')
   const title = Article.title?.[lang]
@@ -159,7 +207,7 @@ export default function HeroForm(){
                  {teks}
               </p>
             </div>
-            <form action="" className="form w-3/4 pt-10 px-10">
+            <form onSubmit={validateProductNameSubmit} action="" className="form w-3/4 pt-10 px-10">
               <h2 className="font-medium text-2xl">Detail Product</h2>
               <div className="mt-8 grid grid-cols-6 row-auto gap-x-10 gap-y-8">
                 <div className="first-name col-span-4">
@@ -173,7 +221,7 @@ export default function HeroForm(){
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     git=""
                     maxLength={25}
-                    value={value}
+                    value={productName}
                     onChange={validateProductName}
                   />
                 </div>
@@ -184,6 +232,7 @@ export default function HeroForm(){
                     name="productCategory"
                     autoComplete="country-name"
                     git=""
+                    onChange={e => setProductCategory(e.target.value)}
                     className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
                     <option value="">&nbsp;&nbsp;Choose...</option>
@@ -199,6 +248,7 @@ export default function HeroForm(){
                     name="image"
                     id="image"
                     git=""
+                    onChange={e => setImage(e)}
                     className="w-full file:bg-[#0D6EFD] file:text-white border-[#0D6EFD] text-[#0D6EFD] border mt-3 rounded"
                   />
                 </div>
@@ -210,6 +260,7 @@ export default function HeroForm(){
                       defaultValue="Brand New"
                       name="productFresh"
                       id="productFresh"
+                      onChange={e => setProductFresh(e.target.value)}
                     />
                     <label htmlFor="" className="ml-1">
                       Brand New
@@ -221,6 +272,7 @@ export default function HeroForm(){
                       defaultValue="Second Hand"
                       name="productFresh"
                       id="productFresh"
+                      onChange={e => setProductFresh(e.target.value)}
                     />
                     <label htmlFor="" className="ml-1 ">
                       Second Hand
@@ -232,6 +284,7 @@ export default function HeroForm(){
                       defaultValue="Refufbished"
                       name="productFresh"
                       id="productFresh"
+                      onChange={e => setProductFresh(e.target.value)}
                     />
                     <label htmlFor="" className="ml-1">
                       Refufbished
@@ -246,6 +299,7 @@ export default function HeroForm(){
                     id="additionalDesc"
                     cols={30}
                     rows={4}
+                    onChange={e => setDesc(e.target.value)}
                     className="w-full mt-3 border-[#CED4DA] rounded"
                     defaultValue={""}
                   />
@@ -257,12 +311,12 @@ export default function HeroForm(){
                     name="productPrice"
                     id="productPrice"
                     placeholder="$1"
+                    onChange={e => setPrice(e.target.value)}
                     className="w-full mt-3 border-[#CED4DA] rounded"
                   />
                 </div>
                 <input
                   defaultValue="submit"
-                  onClick={validateProductNameSubmit}
                   type="submit"
                   id="submit"
                   className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md cursor-pointer"
