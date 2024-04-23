@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 import { Button, Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 export default function HeroForm() {
+
+  const imageRef = useRef(null)
+
   // State untuk menyimpan value input
   const [input, setInput] = useState({
     id: 1, // ID akan diisi secara otomatis
     productName: "",
     productCategory: "",
     productFreshness: "",
+    desc:"",
     productPrice: "",
   });
 
@@ -64,8 +68,12 @@ export default function HeroForm() {
       productName: "",
       productCategory: "",
       productFreshness: "",
+      desc:"",
       productPrice: "",
     });
+
+    // reset input file
+    imageRef.current.value = ''
 
     // Menambahkan 1 ke ID berikutnya
     setNextId((prevId) => prevId + 1);
@@ -315,6 +323,7 @@ export default function HeroForm() {
                 name="image"
                 id="image"
                 git=""
+                ref={imageRef}
                 className="w-full file:bg-[#0D6EFD] file:text-white border-[#0D6EFD] text-[#0D6EFD] border mt-3 rounded"
               />
             </div>
@@ -330,7 +339,8 @@ export default function HeroForm() {
                   type="radio"
                   defaultValue="Brand New"
                   name="productFreshness"
-                  id="productFreshness"
+                  id="brandNew"
+                  checked={input.productFreshness === 'Brand New'}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1">
@@ -342,7 +352,8 @@ export default function HeroForm() {
                   type="radio"
                   defaultValue="Second Hand"
                   name="productFreshness"
-                  id="productFreshness"
+                  id="secondHand"
+                  checked={input.productFreshness === 'Second Hand'}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1 ">
@@ -352,13 +363,14 @@ export default function HeroForm() {
               <div className="mt-1 w-full flex flex-row">
                 <input
                   type="radio"
-                  defaultValue="Refufbished"
+                  defaultValue="Refurbished"
                   name="productFreshness"
-                  id="productFreshness"
+                  id="refurbished"
+                  checked={input.productFreshness === 'Refurbished'}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1">
-                  Refufbished
+                  Refurbished
                 </label>
               </div>
             </div>
@@ -368,12 +380,13 @@ export default function HeroForm() {
               </label>
               <br />
               <textarea
-                name="additionalDesc"
-                id="additionalDesc"
+                name="desc"
+                id="desc"
                 cols={30}
                 rows={4}
                 className="w-full mt-3 border-[#CED4DA] rounded"
-                defaultValue={""}
+                onChange={handleChangeInput}
+                value={input.desc}
               />
             </div>
             <div className="col-span-6">
