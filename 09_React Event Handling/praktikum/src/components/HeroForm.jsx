@@ -74,6 +74,7 @@ export default function HeroForm() {
     if (!price) {
       setIsValid(false);
       priceRef.current.style.border = "1px solid red";
+      alert("Please fill in all fields");
     } else {
       priceRef.current.style.border = ""; // Reset border jika valid
     }
