@@ -3,13 +3,14 @@ import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 import { Button, Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default function HeroForm(){
 
   // State untuk menyimpan value input
   const [input, setInput] = useState({
-    id: '1', // ID akan diisi secara otomatis
+    id: 1, // ID akan diisi secara otomatis
     productName: '',
     productCategory: '',
     productFreshness: '',
@@ -67,7 +68,7 @@ export default function HeroForm(){
       id: '1', // ID akan diisi secara otomatis
       productName: '',
       productCategory: '',
-      productFreshness: (''),
+      productFreshness: '',
       productPrice: '',
     });
 
@@ -335,25 +336,44 @@ const handleSaveEdit = () => {
                   />
                 </div>
                 <div className="gender col-span-6">
-                  <label className="w-full flex flex-row" htmlFor="productFresh">
-                    Product Freshness
-                  </label>
-                  {options.map((option) => (
-                    <div key={option.id} className="mt-3 w-full flex flex-row">
-                      <input
-                        type="radio"
-                        name="productFreshness"
-                        id={option.value}
-                        value={option.value}
-                        onChange={handleChangeInput}
-                      />
-                      <label htmlFor={input.value} className="ml-1">
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
+                  <label className="w-full flex flex-row" htmlFor="productFreshness">Product Freshness</label>
+                  <div className="mt-3 w-full flex flex-row">
+                    <input
+                      type="radio"
+                      defaultValue="Brand New"
+                      name="productFreshness"
+                      id="productFreshness"
+                      onChange={handleChangeInput}
+                    />
+                    <label htmlFor="" className="ml-1">
+                      Brand New
+                    </label>
+                  </div>
+                  <div className="mt-1 w-full flex flex-row">
+                    <input
+                      type="radio"
+                      defaultValue="Second Hand"
+                      name="productFreshness"
+                      id="productFreshness"
+                      onChange={handleChangeInput}
+                    />
+                    <label htmlFor="" className="ml-1 ">
+                      Second Hand
+                    </label>
+                  </div>
+                  <div className="mt-1 w-full flex flex-row">
+                    <input
+                      type="radio"
+                      defaultValue="Refufbished"
+                      name="productFreshness"
+                      id="productFreshness"
+                      onChange={handleChangeInput}
+                    />
+                    <label htmlFor="" className="ml-1">
+                      Refufbished
+                    </label>
+                  </div>
                 </div>
-
                 <div className="col-span-6">
                   <label className="w-full flex flex-row" htmlFor="additionalDesc">Additional Description</label>
                   <br />
