@@ -6,4 +6,3 @@ export default function PrivateRoutes() {
 
   return (auth ? <Outlet /> : <Navigate to="/login" />)
 }
- 
