@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 import { Button, Modal } from "flowbite-react";
@@ -127,7 +127,7 @@ export default function HeroForm(){
     setOpenModal(true)
     // Cari index data yang akan diedit berdasarkan ID
     const editedProduct = tableData.find((data) => data.id === id);
-    setInputEdit(editedProduct)
+    setFormEdit(editedProduct)
   }
 
   // fungsi menyimpan handle change edit
@@ -151,7 +151,7 @@ export default function HeroForm(){
 
 
   // Fungsi untuk menyimpan perubahan edit
-const handleSaveEdit = () => {
+const handleSaveEdit = (id) => {
   const editedIndex = tableData.findIndex((data) => data.id === productIdToEdit);
   tableData[editedIndex] = {
     ...tableData[editedIndex],
@@ -442,7 +442,7 @@ const handleSaveEdit = () => {
                           name="productName"
                           id="productName"
                           className="w-full mt-3 border-[#CED4DA] rounded"
-                          value={inputEdit.productName}
+                          value={formEdit.productName}
                           onChange={handleChangeEdit}
                         />
                       </div>
@@ -455,7 +455,7 @@ const handleSaveEdit = () => {
                           autoComplete="country-name"
                           className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                           onChange={handleChangeEdit}
-                          value={inputEdit.productCategory}
+                          value={formEdit.productCategory}
                         >
                           <option value="">&nbsp;&nbsp;Choose...</option>
                           <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
@@ -475,7 +475,7 @@ const handleSaveEdit = () => {
                               name="productFreshness"
                               id={option.value}
                               value={option.value}
-                              checked={inputEdit.productFreshness === option.value}
+                              checked={formEdit.productFreshness === option.value}
                               onChange={handleChangeEdit}
                             />
                             <label htmlFor={option.value} className="ml-1">
@@ -494,7 +494,7 @@ const handleSaveEdit = () => {
                           placeholder="$1"
                           className="w-full mt-3 border-[#CED4DA] rounded"
                           onChange={handleChangeEdit}
-                          value={inputEdit.productPrice}
+                          value={formEdit.productPrice}
                         />
                       </div>
                     </div>
