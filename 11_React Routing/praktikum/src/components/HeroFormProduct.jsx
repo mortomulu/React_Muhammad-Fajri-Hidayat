@@ -309,9 +309,8 @@ export default function HeroForm() {
                 value={input.productCategory}
               >
                 <option value="">&nbsp;&nbsp;Choose...</option>
-                <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
-                <option value="Malaysia">&nbsp;&nbsp;Malaysia</option>
-                <option value="Bekasi">&nbsp;&nbsp;Bekasi</option>
+                <option value="Local">&nbsp;&nbsp;Local</option>
+                <option value="Import">&nbsp;&nbsp;Import</option>
               </select>
             </div>
             <div className="col-span-4 ml-0">
