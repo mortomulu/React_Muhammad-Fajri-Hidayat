@@ -5,6 +5,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import Login from "./pages/Login";
 import CreateProduct from "./pages/CreateProduct";
 import DetailProduct from "./pages/DetailProduct";
+import Error from "./pages/404";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/details/:id" exact element={<DetailProduct />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </BrowserRouter>
   );
