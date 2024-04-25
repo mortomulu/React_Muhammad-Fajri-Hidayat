@@ -36,6 +36,7 @@ export default function HeroForm() {
   // Fungsi untuk validasi input
   const validateInput = () => {
     let hasError = false;
+    
 
     // Cek setiap field input
     for (const name in input) {
@@ -48,6 +49,21 @@ export default function HeroForm() {
     return hasError;
   };
 
+  // Fungsi untuk Validasi Input dengan regex
+  const validateRegex = () => {
+    let regexError = false
+    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+
+    for (const name in input){
+      if (!alphanumericRegex.test(input[name])) {
+        regexError = true;
+        break;
+      }
+    }
+
+    return regexError
+  }
+
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,6 +73,12 @@ export default function HeroForm() {
     if (hasError) {
       alert("Please fill in all fields.");
       return;
+    }
+
+    const regexError = validateRegex();
+    if(regexError){
+      alert('Dont fill this form with @#$%?')
+      return
     }
 
     // Menambahkan data input ke tabel
