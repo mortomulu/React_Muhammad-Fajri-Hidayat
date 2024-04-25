@@ -3,10 +3,10 @@ import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 import { Button, Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export default function HeroForm() {
-
-  const imageRef = useRef(null)
+  const imageRef = useRef(null);
 
   // State untuk menyimpan value input
   const [input, setInput] = useState({
@@ -14,7 +14,7 @@ export default function HeroForm() {
     productName: "",
     productCategory: "",
     productFreshness: "",
-    desc:"",
+    desc: "",
     productPrice: "",
   });
 
@@ -68,12 +68,12 @@ export default function HeroForm() {
       productName: "",
       productCategory: "",
       productFreshness: "",
-      desc:"",
+      desc: "",
       productPrice: "",
     });
 
     // reset input file
-    imageRef.current.value = ''
+    imageRef.current.value = "";
 
     // Menambahkan 1 ke ID berikutnya
     setNextId((prevId) => prevId + 1);
@@ -340,7 +340,7 @@ export default function HeroForm() {
                   defaultValue="Brand New"
                   name="productFreshness"
                   id="brandNew"
-                  checked={input.productFreshness === 'Brand New'}
+                  checked={input.productFreshness === "Brand New"}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1">
@@ -353,7 +353,7 @@ export default function HeroForm() {
                   defaultValue="Second Hand"
                   name="productFreshness"
                   id="secondHand"
-                  checked={input.productFreshness === 'Second Hand'}
+                  checked={input.productFreshness === "Second Hand"}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1 ">
@@ -366,7 +366,7 @@ export default function HeroForm() {
                   defaultValue="Refurbished"
                   name="productFreshness"
                   id="refurbished"
-                  checked={input.productFreshness === 'Refurbished'}
+                  checked={input.productFreshness === "Refurbished"}
                   onChange={handleChangeInput}
                 />
                 <label htmlFor="" className="ml-1">
@@ -577,6 +577,11 @@ export default function HeroForm() {
                       >
                         Edit
                       </Button>
+                      <Link to={`/details/${data.id}`} state={{data}}>
+                        <Button className="px-2 py-1 bg-purple-500 text-white text-sm rounded">
+                          Detail
+                        </Button>
+                      </Link>
                     </td>
                   </tr>
                 ))}
