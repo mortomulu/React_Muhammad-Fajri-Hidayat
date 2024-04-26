@@ -36,11 +36,16 @@ export default function HeroForm() {
   // Fungsi untuk validasi input
   const validateInput = () => {
     let hasError = false;
-    
+    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/; // Regex untuk hanya huruf dan angka
 
     // Cek setiap field input
     for (const name in input) {
-      if (input[name] === "") {
+      if (input[name] === '') {
+        hasError = true;
+        break;
+      }
+      // Validasi dengan regex
+      if (!alphanumericRegex.test(input[name])) {
         hasError = true;
         break;
       }
@@ -50,36 +55,44 @@ export default function HeroForm() {
   };
 
   // Fungsi untuk Validasi Input dengan regex
-  const validateRegex = () => {
-    let regexError = false
-    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
-
-    for (const name in input){
-      if (!alphanumericRegex.test(input[name])) {
-        regexError = true;
-        break;
-      }
-    }
-
-    return regexError
-  }
-
+  // const validateRegex = () => {
+    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/;
+  //   let regexError = false;
+  
+  //   // Iterate through each property in the input object
+  //   for (name in input) {
+  //     if (alphanumericRegex.test(input[name])) {
+  //       regexError = true;
+  //       break; // Exit the loop if an error is found
+  //     }
+  //   }
+  
+  //   // Return the error flag, indicating if any validation failed
+  //   return regexError;
+  // };
+  
+  
+  
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validasi input
-    const hasError = validateInput();
-    if (hasError) {
-      alert("Please fill in all fields.");
-      return;
-    }
+  console.log(input);
 
-    const regexError = validateRegex();
-    if(regexError){
-      alert('Dont fill this form with @#$%?')
-      return
-    }
+  // Validate input for empty fields
+  const hasError = validateInput();
+  if (hasError) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // Validate input with regex
+  // const regexError = validateRegex();
+  // if (regexError) {
+  //   // Provide a more specific error message
+  //   alert("Invalid input: Only alphanumeric characters allowed.");
+  //   return;
+  // }
 
     // Menambahkan data input ke tabel
     setTableData((prevData) => [...prevData, { ...input, id: nextId }]);
