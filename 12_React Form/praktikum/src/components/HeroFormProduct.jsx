@@ -13,6 +13,7 @@ export default function HeroForm() {
     id: 1, // ID akan diisi secara otomatis
     productName: "",
     productCategory: "",
+    image: '',
     productFreshness: "",
     desc: "",
     productPrice: "",
@@ -33,10 +34,17 @@ export default function HeroForm() {
     setInput((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
+  const handleImageInput = (e) =>{
+    const file = e.target.files[0]
+    const imageUrl = URL.createObjectURL(file);
+    console.log(file)
+    setInput((prevInput) => ({...prevInput, image:file}))
+  }
+
   // Fungsi untuk validasi input
   const validateInput = () => {
     let hasError = false;
-    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/; // Regex untuk hanya huruf, angka, spasi, dan karakter khusus tertentu
+    const alphanumericRegex = /^[a-zA-Z0-9 !_"#:\-\+{}\/]+$/    ; // Regex untuk hanya huruf, angka, spasi, dan karakter khusus tertentu
     let massage = ''
   
     // Cek setiap field input
@@ -50,6 +58,9 @@ export default function HeroForm() {
   
       // Validasi dengan regex
       if (!alphanumericRegex.test(input[name])) {
+        if(!alphanumericRegex.test(input.image)){
+          continue
+        }
         hasError = true;
         // setMessage('Input contains invalid characters. Please remove @#$% characters.');
         massage = 'Input contains invalid characters. Please remove @#$% characters.'
@@ -81,6 +92,7 @@ export default function HeroForm() {
       id: "1", // ID akan diisi secara otomatis
       productName: "",
       productCategory: "",
+      image:'',
       productFreshness: "",
       desc: "",
       productPrice: "",
@@ -339,6 +351,7 @@ export default function HeroForm() {
                 id="image"
                 git=""
                 ref={imageRef}
+                onChange={handleImageInput}
                 className="w-full file:bg-[#0D6EFD] file:text-white border-[#0D6EFD] text-[#0D6EFD] border mt-3 rounded"
               />
             </div>

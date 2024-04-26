@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 export default function DetailProduct() {
   const { state } = useLocation();
   const data = state.data;
+  const image = 
   console.log(state);
   return (
     <div className="m-4 flex flex-col align-center">
@@ -24,13 +25,17 @@ export default function DetailProduct() {
             </td>
           </tr>
           <tr className="border border-gray-300">
-            <th className="py-2 px-4 border border-gray-300">Product Category</th>
+            <th className="py-2 px-4 border border-gray-300">
+              Product Category
+            </th>
             <td className="py-2 px-4 border border-gray-300">
               {data?.productCategory}
             </td>
           </tr>
           <tr className="border border-gray-300">
-            <th className="py-2 px-4 border border-gray-300">Product Freshness</th>
+            <th className="py-2 px-4 border border-gray-300">
+              Product Freshness
+            </th>
             <td className="py-2 px-4 border border-gray-300">
               {data?.productFreshness}
             </td>
@@ -45,6 +50,12 @@ export default function DetailProduct() {
             <th className="py-2 px-4 border border-gray-300">Product Price</th>
             <td className="py-2 px-4 border border-gray-300">
               {data?.productPrice}
+            </td>
+          </tr>
+          <tr className="border border-gray-300">
+            <th className="py-2 px-4 border border-gray-300">Product Image</th>
+            <td className="py-2 px-4 border border-gray-300 flex justify-center">
+              <img className="w-40" src={URL.createObjectURL(data.image)} alt="image" />
             </td>
           </tr>
         </tbody>
