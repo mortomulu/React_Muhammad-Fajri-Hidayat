@@ -36,67 +36,46 @@ export default function HeroForm() {
   // Fungsi untuk validasi input
   const validateInput = () => {
     let hasError = false;
-    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/; // Regex untuk hanya huruf dan angka
-
+    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/; // Regex untuk hanya huruf, angka, spasi, dan karakter khusus tertentu
+    let massage = ''
+  
     // Cek setiap field input
     for (const name in input) {
       if (input[name] === '') {
         hasError = true;
+        // setMessage('Please fill in all fields.');
+        massage = 'Please fill in all fields.'
         break;
       }
+  
       // Validasi dengan regex
       if (!alphanumericRegex.test(input[name])) {
         hasError = true;
+        // setMessage('Input contains invalid characters. Please remove @#$% characters.');
+        massage = 'Input contains invalid characters. Please remove @#$% characters.'
         break;
       }
     }
-
-    return hasError;
+  
+    return {hasError, massage}
   };
-
-  // Fungsi untuk Validasi Input dengan regex
-  // const validateRegex = () => {
-    const alphanumericRegex = /^[a-zA-Z0-9 !_-]+$/;
-  //   let regexError = false;
-  
-  //   // Iterate through each property in the input object
-  //   for (name in input) {
-  //     if (alphanumericRegex.test(input[name])) {
-  //       regexError = true;
-  //       break; // Exit the loop if an error is found
-  //     }
-  //   }
-  
-  //   // Return the error flag, indicating if any validation failed
-  //   return regexError;
-  // };
-  
-  
   
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-
-  console.log(input);
-
-  // Validate input for empty fields
-  const hasError = validateInput();
-  if (hasError) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  // Validate input with regex
-  // const regexError = validateRegex();
-  // if (regexError) {
-  //   // Provide a more specific error message
-  //   alert("Invalid input: Only alphanumeric characters allowed.");
-  //   return;
-  // }
-
+  
+    console.log(input);
+  
+    // Validate input for empty fields
+    const {hasError, massage} = validateInput();
+    if (hasError) {
+      alert(massage);
+      return;
+    }
+  
     // Menambahkan data input ke tabel
     setTableData((prevData) => [...prevData, { ...input, id: nextId }]);
-
+  
     // Reset state input
     setInput({
       id: "1", // ID akan diisi secara otomatis
@@ -106,16 +85,18 @@ export default function HeroForm() {
       desc: "",
       productPrice: "",
     });
-
+  
+  
     // reset input file
     imageRef.current.value = "";
-
+  
     // Menambahkan 1 ke ID berikutnya
     setNextId((prevId) => prevId + 1);
-
+  
     // Tandai form sebagai submitted
     setSubmitted(true);
   };
+  
 
   // State untuk modal delete
   const [openModalDelete, setOpenModalDelete] = useState(false);
