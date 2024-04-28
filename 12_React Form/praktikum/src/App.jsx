@@ -8,7 +8,6 @@ import CreateProduct from "./pages/CreateProduct";
 import DetailProduct from "./pages/DetailProduct";
 import Error from "./pages/404";
 import Register from "./pages/Register";
-import Test from "./pages/test";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/test" element={<Test />} />
         <Route path="*" element={<Error/>}/>
       </Routes>
     </BrowserRouter>

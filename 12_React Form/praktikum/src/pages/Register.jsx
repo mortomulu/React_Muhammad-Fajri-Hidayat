@@ -1,10 +1,10 @@
 import React from "react";
 import { useFormik, Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const handleSubmit = (values) => {
-    // Handle form submission
     console.log("Form values:", values);
   };
 
@@ -147,6 +147,25 @@ const Register = () => {
                     component="div"
                     className="text-red-500"
                   />
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <label
+                    htmlFor="remember-me"
+                    className=" block text-sm text-gray-900"
+                  >
+                   Have an Account?
+                  </label>
+                </div>
+
+                <div className="text-sm">
+                  <Link
+                    to={"/login"}
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
+                    Sign in
+                  </Link>
                 </div>
               </div>
               <div>
