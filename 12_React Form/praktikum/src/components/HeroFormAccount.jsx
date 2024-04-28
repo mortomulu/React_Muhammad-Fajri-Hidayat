@@ -132,241 +132,241 @@ export default function HeroFormAccount() {
           </p>
         </div>
         <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        userName: "",
-        email: "",
-        gender: "",
-        address: "",
-        nationality: "",
-      }}
-      validationSchema={Yup.object({
-        firstName: Yup.string()
-          .min(4, "Must have at least 4 characters")
-          .required("Required"),
-        lastName: Yup.string()
-          .min(4, "Must have at least 4 characters")
-          .required("Required"),
-        userName: Yup.string().required("Required"),
-        email: Yup.string().email("Invalid email address").required("Required"),
-      })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
-      }}
-    >
-      {(formik) => (
-        <Form action="" className="w-3/4 pt-10 px-10" id="accountForm">
-          <h2 className="font-medium text-2xl">Detail Form</h2>
-          <div className="mt-4 grid grid-cols-6 row-auto gap-x-10 gap-y-5">
-            <div className="first-name col-span-3">
-              <label htmlFor="firstName" className="text-base">
-                First Name
-              </label>
-              <Field
-                type="text"
-                name="firstName"
-                id="firstName"
-                className="w-full mt-3 border-[#CED4DA] rounded"
-              />
-              <ErrorMessage
-                name="firstName"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <div className="last-name col-span-3">
-              <label htmlFor="lastName">Last Name</label>
-              <Field
-                type="text"
-                name="lastName"
-                id="lastName"
-                className="w-full mt-3 border-[#CED4DA] rounded"
-              />
-              <ErrorMessage
-                name="lastName"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <div className="username col-span-6">
-              <label htmlFor="userName">Username</label>
-              <div className="flex mt-3">
-                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-l-md border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                  @
-                </span>
-                <Field
-                  type="text"
-                  id="userName"
-                  name="userName"
-                  className="rounded-none border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Username"
-                />
-                <ErrorMessage
-                  name="userName"
-                  component="div"
-                  className="text-red-500"
-                />
-              </div>
-            </div>
-            <div className="email col-span-6">
-              <label htmlFor="email">Email</label>
-              <Field
-                type="email"
-                name="email"
-                id="email"
-                placeholder="you@example.com"
-                className="w-full mt-3 border-[#CED4DA] rounded"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <div className="gender col-span-6">
-              <label>Gender</label>
-              <div className="mt-3">
-                <Field
-                  type="radio"
-                  name="gender"
-                  id="male"
-                  value="male"
-                  className="mr-1"
-                />
-                <label htmlFor="male" className="ml-1">
-                  Male
-                </label>
-              </div>
-              <div className="mt-1">
-                <Field
-                  type="radio"
-                  name="gender"
-                  id="female"
-                  value="female"
-                  className="mr-1"
-                />
-                <label htmlFor="female" className="ml-1">
-                  Female
-                </label>
-              </div>
-              <div className="mt-1">
-                <Field
-                  type="radio"
-                  name="gender"
-                  id="other"
-                  value="other"
-                  className="mr-1"
-                />
-                <label htmlFor="other" className="ml-1">
-                  Other
-                </label>
-              </div>
-              <ErrorMessage
-                name="gender"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <div className="address col-span-6">
-              <label htmlFor="address">Address</label>
-              <Field
-                type="text"
-                name="address"
-                id="address"
-                placeholder="1234 Main St"
-                className="w-full mt-3 border-[#CED4DA] rounded"
-              />
-              <ErrorMessage
-                name="address"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <div className="address-2 col-span-6">
-              <label htmlFor="address2">
-                Address 2{" "}
-                <span className="text-[#6C757D]">(Optional)</span>
-              </label>
-              <Field
-                type="text"
-                name="address2"
-                id="address2"
-                placeholder="Apartment or suite"
-                className="w-full mt-3 border-[#CED4DA] rounded"
-              />
-            </div>
-            <div className="nationality col-span-6">
-              <label htmlFor="nationality">Nationality</label>
-              <Field
-                as="select"
-                id="nationality"
-                name="nationality"
-                autoComplete="country-name"
-                className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-              >
-                <option value="Indonesia">Indonesia</option>
-                <option value="Malaysia">Malaysia</option>
-                <option value="Bekasi">Bekasi</option>
-              </Field>
-            </div>
-            <div className="language col-span-6 border-t-2">
-              <label>Language Spoken</label>
-              <div className="mt-3 w-full">
-                <div className="flex items-center">
-                  <Field
-                    type="checkbox"
-                    name="language"
-                    id="bahasa"
-                    className="mr-1"
-                  />
-                  <label htmlFor="bahasa" className="ml-2">
-                    Bahasa
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            userName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          }}
+          validationSchema={Yup.object({
+            firstName: Yup.string()
+              .min(3, "Must have at least 3 characters")
+              .required("Required"),
+            lastName: Yup.string()
+              .min(3, "Must have at least 3 characters")
+              .required("Required"),
+            userName: Yup.string().required("Required"),
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("Required"),
+          })}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {(formik) => (
+            <Form action="" className="w-3/4 pt-10 px-10" id="accountForm">
+              <h2 className="font-medium text-2xl">Detail Form</h2>
+              <div className="mt-4 grid grid-cols-6 row-auto gap-x-10 gap-y-5">
+                <div className="first-name col-span-3">
+                  <label htmlFor="firstName" className="text-base">
+                    First Name
                   </label>
-                </div>
-                <div className="flex items-center">
                   <Field
-                    type="checkbox"
-                    name="language"
-                    id="english"
-                    className="mr-1"
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    className="w-full mt-3 border-[#CED4DA] rounded"
                   />
-                  <label htmlFor="english" className="ml-2">
-                    English
-                  </label>
+                  <ErrorMessage
+                    name="firstName"
+                    component="div"
+                    className="text-red-500"
+                  />
                 </div>
-                <div className="flex items-center">
+                <div className="last-name col-span-3">
+                  <label htmlFor="lastName">Last Name</label>
                   <Field
-                    type="checkbox"
-                    name="language"
-                    id="others"
-                    className="mr-1"
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    className="w-full mt-3 border-[#CED4DA] rounded"
                   />
-                  <label htmlFor="others" className="ml-2">
-                    Others
-                  </label>
+                  <ErrorMessage
+                    name="lastName"
+                    component="div"
+                    className="text-red-500"
+                  />
                 </div>
+                <div className="username col-span-6">
+                  <label htmlFor="userName">Username</label>
+                  <div className="flex mt-3">
+                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-l-md border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                      @
+                    </span>
+                    <Field
+                      type="text"
+                      id="userName"
+                      name="userName"
+                      className="rounded-none border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Username"
+                    />
+                    <ErrorMessage
+                      name="userName"
+                      component="div"
+                      className="text-red-500"
+                    />
+                  </div>
+                </div>
+                <div className="email col-span-6">
+                  <label htmlFor="email">Email</label>
+                  <Field
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    className="w-full mt-3 border-[#CED4DA] rounded"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+                <div className="gender col-span-6">
+                  <label>Gender</label>
+                  <div className="mt-3">
+                    <Field
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      value="male"
+                      className="mr-1"
+                    />
+                    <label htmlFor="male" className="ml-1">
+                      Male
+                    </label>
+                  </div>
+                  <div className="mt-1">
+                    <Field
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                      className="mr-1"
+                    />
+                    <label htmlFor="female" className="ml-1">
+                      Female
+                    </label>
+                  </div>
+                  <div className="mt-1">
+                    <Field
+                      type="radio"
+                      name="gender"
+                      id="other"
+                      value="other"
+                      className="mr-1"
+                    />
+                    <label htmlFor="other" className="ml-1">
+                      Other
+                    </label>
+                  </div>
+                  <ErrorMessage
+                    name="gender"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+                <div className="address col-span-6">
+                  <label htmlFor="address">Address</label>
+                  <Field
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="1234 Main St"
+                    className="w-full mt-3 border-[#CED4DA] rounded"
+                  />
+                  <ErrorMessage
+                    name="address"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+                <div className="address-2 col-span-6">
+                  <label htmlFor="address2">
+                    Address 2 <span className="text-[#6C757D]">(Optional)</span>
+                  </label>
+                  <Field
+                    type="text"
+                    name="address2"
+                    id="address2"
+                    placeholder="Apartment or suite"
+                    className="w-full mt-3 border-[#CED4DA] rounded"
+                  />
+                </div>
+                <div className="nationality col-span-6">
+                  <label htmlFor="nationality">Nationality</label>
+                  <Field
+                    as="select"
+                    id="nationality"
+                    name="nationality"
+                    autoComplete="country-name"
+                    className="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  >
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Bekasi">Bekasi</option>
+                  </Field>
+                </div>
+                <div className="language col-span-6 border-t-2">
+                  <label>Language Spoken</label>
+                  <div className="mt-3 w-full">
+                    <div className="flex items-center">
+                      <Field
+                        type="checkbox"
+                        name="language"
+                        id="bahasa"
+                        className="mr-1"
+                      />
+                      <label htmlFor="bahasa" className="ml-2">
+                        Bahasa
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <Field
+                        type="checkbox"
+                        name="language"
+                        id="english"
+                        className="mr-1"
+                      />
+                      <label htmlFor="english" className="ml-2">
+                        English
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <Field
+                        type="checkbox"
+                        name="language"
+                        id="others"
+                        className="mr-1"
+                      />
+                      <label htmlFor="others" className="ml-2">
+                        Others
+                      </label>
+                    </div>
+                  </div>
+                  <ErrorMessage
+                    name="language"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+                <button
+                  id="submit"
+                  type="submit"
+                  className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md"
+                >
+                  Create Account
+                </button>
               </div>
-              <ErrorMessage
-                name="language"
-                component="div"
-                className="text-red-500"
-              />
-            </div>
-            <button
-              id="submit"
-              type="submit"
-              className="col-span-6 mt-4 mx-8 bg-blue-600 text-white text-xl py-2 rounded-md"
-            >
-              Create Account
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+            </Form>
+          )}
+        </Formik>
         ;
       </section>
     </>
