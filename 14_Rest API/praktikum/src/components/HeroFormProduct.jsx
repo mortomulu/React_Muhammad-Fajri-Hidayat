@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { fetchData } from "../utils/fetchData";
 import { postData } from "../utils/postData";
 import { editData } from "../utils/editData";
+import { deleteData } from "../utils/deleteData";
 
 export default function HeroForm() {
 
@@ -152,6 +153,7 @@ export default function HeroForm() {
   // Fungsi untuk menghapus data list
   const handleDelete = (id) => {
     setOpenModalDelete(false);
+    deleteData(id)
     const updatedData = tableData.filter((data) => data.id !== id);
     setTableData(updatedData);
   };
