@@ -6,6 +6,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { fetchData } from "../utils/fetchData";
 import { postData } from "../utils/postData";
+import { editData } from "../utils/editData";
 
 export default function HeroForm() {
 
@@ -186,7 +187,8 @@ export default function HeroForm() {
   };
 
   // Fungsi untuk menyimpan perubahan edit
-  const handleSaveEdit = (id) => {
+  const handleSaveEdit = async (id) => {
+    await editData(id, formEdit)
     const editedIndex = tableData.findIndex(
       (data) => data.id === productIdToEdit
     );
@@ -536,9 +538,8 @@ export default function HeroForm() {
                     value={formEdit.productCategory}
                   >
                     <option value="">&nbsp;&nbsp;Choose...</option>
-                    <option value="Indonesia">&nbsp;&nbsp;Indonesia</option>
-                    <option value="Malaysia">&nbsp;&nbsp;Malaysia</option>
-                    <option value="Bekasi">&nbsp;&nbsp;Bekasi</option>
+                    <option value="Local">&nbsp;&nbsp;Local</option>
+                    <option value="Import">&nbsp;&nbsp;Import</option>
                   </select>
                 </div>
                 {/* Input untuk kesegaran produk */}
@@ -617,7 +618,7 @@ export default function HeroForm() {
                     <td className="border px-4 py-2">
                       {data.productFreshness}
                     </td>
-                    <td className="border px-4 py-2">{data.productPrice}</td>
+                    <td className="border px-4 py-2">${data.productPrice}</td>
                     <td className="border px-4 py-2 gap-1 flex justify-center">
                       <Button
                         className="px-2 py-1 bg-red-600 text-white text-sm rounded"
