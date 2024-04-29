@@ -1,11 +1,38 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useGlobalState } from "../state/global";
 import Article from "../assets/data";
 import { Button, Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { fetchData } from "../utils/fetchData";
+import { postData } from "../utils/postData";
 
 export default function HeroForm() {
+
+  const [products, setProducts] = useState([])
+  // State untuk menampung data tabel
+  const [tableData, setTableData] = useState([]);
+
+
+  const fetchDataAsync = async () => {
+    try {
+        const response = await fetchData();
+        setTableData(response);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        // Tangani kesalahan jika diperlukan
+    }
+};
+
+  useEffect(() => {
+     fetchDataAsync()
+  }, []);
+
+  useEffect(()=>{
+    setNextId(tableData.length + 1)
+  },[tableData])
+
+
   const imageRef = useRef(null);
 
   // State untuk menyimpan value input
@@ -13,20 +40,17 @@ export default function HeroForm() {
     id: 1, // ID akan diisi secara otomatis
     productName: "",
     productCategory: "",
-    image: '',
+    image: "",
     productFreshness: "",
     desc: "",
     productPrice: "",
   });
 
   // State untuk menandakan apakah form telah disubmit
-  const [submitted, setSubmitted] = useState(false);
-
-  // State untuk menampung data tabel
-  const [tableData, setTableData] = useState([]);
+  const [submitted, setSubmitted] = useState(true);
 
   // State untuk mengelola ID
-  const [nextId, setNextId] = useState(1);
+  const [nextId, setNextId] = useState(tableData.length);
 
   // Fungsi untuk menangani input
   const handleChangeInput = (e) => {
@@ -34,81 +58,83 @@ export default function HeroForm() {
     setInput((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
-  const handleImageInput = (e) =>{
-    const file = e.target.files[0]
+  const handleImageInput = (e) => {
+    const file = e.target.files[0];
     const imageUrl = URL.createObjectURL(file);
-    console.log(file)
-    setInput((prevInput) => ({...prevInput, image:file}))
-  }
+    console.log(file);
+    setInput((prevInput) => ({ ...prevInput, image: file }));
+  };
 
   // Fungsi untuk validasi input
   const validateInput = () => {
     let hasError = false;
-    const alphanumericRegex = /^[a-zA-Z0-9 !_"#:\-\+{}\/]+$/    ; // Regex untuk hanya huruf, angka, spasi, dan karakter khusus tertentu
-    let massage = ''
-  
+    const alphanumericRegex = /^[a-zA-Z0-9 !_"#:\-\+{}\/]+$/; // Regex untuk hanya huruf, angka, spasi, dan karakter khusus tertentu
+    let massage = "";
+
     // Cek setiap field input
     for (const name in input) {
-      if (input[name] === '') {
+      if (input[name] === "") {
         hasError = true;
         // setMessage('Please fill in all fields.');
-        massage = 'Please fill in all fields.'
+        massage = "Please fill in all fields.";
         break;
       }
-  
+
       // Validasi dengan regex
       if (!alphanumericRegex.test(input[name])) {
-        if(!alphanumericRegex.test(input.image)){
-          continue
+        if (!alphanumericRegex.test(input.image)) {
+          continue;
         }
         hasError = true;
         // setMessage('Input contains invalid characters. Please remove @#$% characters.');
-        massage = 'Input contains invalid characters. Please remove @#$% characters.'
+        massage =
+          "Input contains invalid characters. Please remove @#$% characters.";
         break;
       }
     }
-  
-    return {hasError, massage}
+
+    return { hasError, massage };
   };
-  
+
   // Fungsi untuk menangani submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     console.log(input);
-  
+
     // Validate input for empty fields
-    const {hasError, massage} = validateInput();
+    const { hasError, massage } = validateInput();
     if (hasError) {
       alert(massage);
       return;
     }
-  
+
+    postData(input)
+
+
     // Menambahkan data input ke tabel
     setTableData((prevData) => [...prevData, { ...input, id: nextId }]);
-  
+
     // Reset state input
     setInput({
       id: "1", // ID akan diisi secara otomatis
       productName: "",
       productCategory: "",
-      image:'',
+      image: "",
       productFreshness: "",
       desc: "",
       productPrice: "",
     });
-  
-  
+
     // reset input file
     imageRef.current.value = "";
-  
+
     // Menambahkan 1 ke ID berikutnya
     setNextId((prevId) => prevId + 1);
-  
+
     // Tandai form sebagai submitted
     setSubmitted(true);
   };
-  
 
   // State untuk modal delete
   const [openModalDelete, setOpenModalDelete] = useState(false);
@@ -440,7 +466,7 @@ export default function HeroForm() {
           </div>
         </form>
       </section>
-      {submitted && (
+      {(tableData[0]) && (
         <div className="m-12">
           <Modal
             show={openModalDelete}
@@ -605,7 +631,7 @@ export default function HeroForm() {
                       >
                         Edit
                       </Button>
-                      <Link to={`/details/${data.id}`} state={{data}}>
+                      <Link to={`/details/${data.id}`} state={{ data }}>
                         <Button className="px-2 py-1 bg-purple-500 text-white text-sm rounded">
                           Detail
                         </Button>

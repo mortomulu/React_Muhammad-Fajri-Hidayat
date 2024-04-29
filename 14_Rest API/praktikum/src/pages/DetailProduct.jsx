@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 export default function DetailProduct() {
   const { state } = useLocation();
   const data = state.data;
-  const image = 
+  const image = (data.image)? URL.createObjectURL(data.image) : data.imageMock
   console.log(state);
   return (
     <div className="m-4 flex flex-col align-center">
@@ -55,7 +55,7 @@ export default function DetailProduct() {
           <tr className="border border-gray-300">
             <th className="py-2 px-4 border border-gray-300">Product Image</th>
             <td className="py-2 px-4 border border-gray-300 flex justify-center">
-              <img className="w-40" src={URL.createObjectURL(data.image)} alt="image" />
+              <img className="w-40" src={image} alt="image" />
             </td>
           </tr>
         </tbody>
