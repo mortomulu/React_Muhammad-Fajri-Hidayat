@@ -5,15 +5,25 @@ import * as Yup from "yup";
 
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Lakukan penanganan masuk di sini
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
+  const handleLogin = (values) => {
+    const dummyUser = { username: 'admin', password: 'password123' };
+    
+    // Membandingkan nilai yang diinputkan dengan user dummy
+    if (values.email === dummyUser.username && values.password === dummyUser.password) {
+      // Menyimpan data pengguna ke local storage
+      localStorage.setItem('user', JSON.stringify(dummyUser));
+      localStorage.setItem('isLoggedIn', true);
+      // Me-refresh halaman
+      window.location.reload();
+    } else {
+      // Menampilkan pesan error jika login gagal
+      setErrorMessage('Invalid username or password');
+    }
+  };  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -36,7 +46,7 @@ const Login = () => {
               .min(8, "Must be at least 8 characters")
               .required("Required"),
           })}
-          onSubmit={handleSubmit}
+          onSubmit={handleLogin}
         >
           {({ isSubmitting }) => (
             <Form className="w-full max-w-lg mx-auto space-y-6">

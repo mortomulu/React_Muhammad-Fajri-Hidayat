@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 export default function DetailProduct() {
   const { state } = useLocation();
   const data = state.data;
-  const image = (data.image)? URL.createObjectURL(data.image) : data.imageMock
+  const image = URL.createObjectURL(data.image)
+  // const image = (data.image)? URL.createObjectURL(data.image) : data.imageMock
   console.log(state);
   return (
     <div className="m-4 flex flex-col align-center">
