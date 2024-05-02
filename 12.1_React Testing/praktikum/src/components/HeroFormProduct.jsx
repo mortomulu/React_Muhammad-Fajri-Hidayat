@@ -303,6 +303,7 @@ export default function HeroForm() {
           onSubmit={handleSubmit}
           action=""
           className="form w-3/4 pt-10 px-10"
+          data-testid="hero-form"
         >
           <h2 className="font-medium text-2xl">Detail Product</h2>
           <div className="mt-8 grid grid-cols-6 row-auto gap-x-10 gap-y-8">
