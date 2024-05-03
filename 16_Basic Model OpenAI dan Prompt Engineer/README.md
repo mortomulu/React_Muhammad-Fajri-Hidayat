@@ -16,4 +16,5 @@ Friday, 26 April 2024
 * mainin prompt di api body : Mengatur prompt dalam badan API.
 * penyebab error :
   - api key rusak
+  - format .env salah
   - endpoint salah
