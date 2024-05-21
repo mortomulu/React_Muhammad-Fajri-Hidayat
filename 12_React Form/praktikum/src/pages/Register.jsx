@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik, Formik, Field, ErrorMessage, Form } from "formik";
+import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
@@ -56,6 +56,7 @@ const Register = () => {
                   <Field
                     type="text"
                     name="firstName"
+                    as="textarea"
                     id="firstName"
                     className="w-full mt-3 border-[#CED4DA] rounded"
                   />

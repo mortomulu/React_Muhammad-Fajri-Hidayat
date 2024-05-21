@@ -10,7 +10,7 @@ function App() {
     // const openai = new OpenAI(apiKey);
   }, []);
 
-  const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+  const API_KEY = "sk-proj-DdQbFftzOzgN6ZgxogCxT3BlbkFJ8z3WU3lM6V41oKaosHhj"
   const dataKelasB = [
     {
       "Nama Panggilan": "nazar",
