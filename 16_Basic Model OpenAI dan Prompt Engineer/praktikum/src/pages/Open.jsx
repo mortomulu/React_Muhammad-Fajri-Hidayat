@@ -17,7 +17,6 @@ function Open() {
       'Ekspektasi Nilai': 10,
       'Cara belajar': 'lihat video, baca referensi/modul'
     },
-    // Tambahkan data peserta kelas B lainnya sesuai kebutuhan
   ];
 
   const handleSubmit = async (e) => {
