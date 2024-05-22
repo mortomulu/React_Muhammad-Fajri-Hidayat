@@ -7,7 +7,6 @@ function App() {
   const [prompt, setPrompt] = useState("");
 
   useEffect(() => {
-    // const openai = new OpenAI(apiKey);
   }, []);
 
   const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
@@ -200,8 +199,8 @@ function App() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-center">
-        Contoh Pembuatan Customer Service Kampus Merdeka Class B
-         with Model & Prompt Engineer
+        Contoh Pembuatan Customer Service Kampus Merdeka Class B with Model &
+        Prompt Engineer
       </h1>
       <div className=" p-5  shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] rounded-lg mt-4 h-96">
         <div className="h-72">{respond}</div>
@@ -213,7 +212,12 @@ function App() {
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
             />
-            <button className="bg-blue-900 text-white p-2 rounded-full ml-5" type="submit"><IoSend/></button>
+            <button
+              className="bg-blue-900 text-white p-2 rounded-full ml-5"
+              type="submit"
+            >
+              <IoSend />
+            </button>
           </form>
         </div>
       </div>
