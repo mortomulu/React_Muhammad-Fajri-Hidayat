@@ -1,2 +1,2 @@
 # React_Muhammad-Fajri-Hidayat
-Studi Independent React Kelas B
+Studi Independent React Kelas B Kampus 
